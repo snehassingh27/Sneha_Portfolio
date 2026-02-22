@@ -394,25 +394,44 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   <button class="ga gr" onclick="scrollGal(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   <div class="gal-track" id="galTrack">
     <div class="gal-sp"></div>
+
     <div class="ac" onclick="galClick(this,'art1.jpg','img')">
-      <img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';">
+      <div class="ac-inner">
+        <div class="ac-thumb"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';"></div>
+      </div>
     </div>
+
     <div class="ac" onclick="galClick(this,'art2.jpg','img')">
-      <img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';">
+      <div class="ac-inner">
+        <div class="ac-thumb"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';"></div>
+      </div>
     </div>
+
     <div class="ac" onclick="galClick(this,'art3.jpg','img')">
-      <img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';">
+      <div class="ac-inner">
+        <div class="ac-thumb"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';"></div>
+      </div>
     </div>
+
     <div class="ac" onclick="galClick(this,'art4.jpg','img')">
-      <img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';">
+      <div class="ac-inner">
+        <div class="ac-thumb"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';"></div>
+      </div>
     </div>
+
     <div class="ac" onclick="galClick(this,'art5.jpg','img')">
-      <img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';">
+      <div class="ac-inner">
+        <div class="ac-thumb"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';"></div>
+      </div>
     </div>
-    <div class="ac vid-card" onclick="galClick(this,'art6.mp4','vid')">
-      <video src="art6.mp4" muted loop playsinline style="pointer-events:none;"></video>
-      <div class="play-badge"><span><svg width="10" height="10" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></div>
+
+    <div class="ac" onclick="galClick(this,'art6.mp4','vid')" style="position:relative;">
+      <div class="ac-inner">
+        <div class="ac-thumb"><video src="art6.mp4" muted loop playsinline style="pointer-events:none;"></video></div>
+      </div>
+      <div class="play-badge"><span><svg width="13" height="13" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg></span></div>
     </div>
+
     <div class="gal-sp"></div>
   </div>
 </div>
