@@ -209,6 +209,9 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <div id="cur"></div>
 <div id="dot"></div>
 
+<!-- scroll progress bar -->
+<div id="scroll-bar"></div>
+
 <!-- LIGHTBOX -->
 <div id="lb">
   <div id="lb-bg" onclick="closeLb()"></div>
@@ -509,6 +512,97 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+/* ══════════════════════
+   iOS FROSTED GLASS SCROLL
+══════════════════════ */
+(function() {
+  const nav      = document.querySelector('.nav');
+  const sbar     = document.getElementById('scroll-bar');
+  const body     = document.body;
+  const allDivs  = document.querySelectorAll('.div');
+  const expList  = document.querySelector('.el');
+  const bioCard  = document.querySelector('.bt');
+  const statRow  = document.querySelector('.strow');
+  const eduCards = document.querySelectorAll('.ec');
+
+  // elements that get frosted when entering viewport
+  const frostTargets = [
+    ...document.querySelectorAll('.ec'),
+    ...document.querySelectorAll('.skb'),
+    ...document.querySelectorAll('.er'),
+    document.querySelector('.el'),
+    document.querySelector('.strow'),
+  ].filter(Boolean);
+
+  let lastScroll = 0;
+  let ticking    = false;
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  function update() {
+    const sy     = window.scrollY;
+    const docH   = document.documentElement.scrollHeight - window.innerHeight;
+    const prog   = docH > 0 ? (sy / docH) * 100 : 0;
+    const going  = sy > lastScroll;
+
+    // scroll progress bar
+    if (sbar) sbar.style.width = prog + '%';
+
+    // nav frost deepens after 40px
+    if (nav) nav.classList.toggle('scrolled', sy > 40);
+
+    // ambient bg tint shifts subtly with scroll
+    const hue1  = Math.round(210 + sy * 0.02) % 360;
+    const hue2  = Math.round(260 + sy * 0.015) % 360;
+    body.style.background = `
+      radial-gradient(ellipse 80% 60% at ${20 + sy*0.01}% 20%, hsla(${hue1},80%,60%,.055) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 80% at ${80 - sy*0.008}% 80%, hsla(${hue2},70%,65%,.045) 0%, transparent 70%),
+      #f5f5f7
+    `;
+
+    // dividers get blue tint when scrolled past
+    allDivs.forEach(d => {
+      const top = d.getBoundingClientRect().top;
+      d.classList.toggle('frosted', top < window.innerHeight * 0.8);
+    });
+
+    // bio card frosts as it enters view
+    if (bioCard) {
+      const top = bioCard.getBoundingClientRect().top;
+      bioCard.classList.toggle('frosted', top < window.innerHeight * 0.75);
+    }
+
+    // exp list frosts
+    if (expList) {
+      const top = expList.getBoundingClientRect().top;
+      expList.classList.toggle('frosted', top < window.innerHeight * 0.9);
+    }
+
+    // stat row
+    if (statRow) {
+      const top = statRow.getBoundingClientRect().top;
+      statRow.classList.toggle('frosted', top < window.innerHeight * 0.9);
+    }
+
+    // edu cards
+    eduCards.forEach(c => {
+      const top = c.getBoundingClientRect().top;
+      c.classList.toggle('frosted', top < window.innerHeight * 0.85);
+    });
+
+    lastScroll = sy;
+    ticking    = false;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  update(); // init
+})();
 
 /* ══════════════════════
    SCROLL REVEAL
