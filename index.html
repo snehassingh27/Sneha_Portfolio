@@ -6,290 +6,287 @@
 <title>Sneha Singh · Product Manager</title>
 <style>
 :root {
-  --white: #ffffff;
-  --bg: #f5f5f7;
-  --text: #1d1d1f;
-  --muted: #6e6e73;
-  --blue: #0071e3;
-  --border-light: #e8e8ed;
-  --border: #d2d2d7;
+  --white:#ffffff; --bg:#f5f5f7; --text:#1d1d1f;
+  --muted:#6e6e73; --blue:#0071e3;
+  --border:#d2d2d7; --border-light:#e8e8ed;
 }
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-
-/* ── Custom transparent blurred cursor ── */
-*, a, button { cursor: none !important; }
-#cursor {
-  position: fixed;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
-  left: 0; top: 0;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+*,a,button{cursor:none!important;}
+#cursor{
+  position:fixed;width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(8px) saturate(180%);
+  -webkit-backdrop-filter:blur(8px) saturate(180%);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 2px 16px rgba(0,0,0,.10);
+  pointer-events:none;z-index:99999;
+  transform:translate(-50%,-50%);
+  transition:width .2s,height .2s,background .2s;
+  left:0;top:0;
 }
-#cursor.hovering {
-  width: 56px; height: 56px;
-  background: rgba(0,113,227,0.13);
-  border-color: rgba(0,113,227,0.35);
+#cursor.hovering{width:56px;height:56px;background:rgba(0,113,227,.13);border-color:rgba(0,113,227,.35);}
+#cursor-dot{
+  position:fixed;width:5px;height:5px;border-radius:50%;
+  background:rgba(0,113,227,.7);pointer-events:none;z-index:100000;
+  transform:translate(-50%,-50%);left:0;top:0;
 }
-#cursor-dot {
-  position: fixed;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: rgba(0,113,227,0.7);
-  pointer-events: none;
-  z-index: 100000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.03s linear;
-  left: 0; top: 0;
+body{
+  font-family:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  font-size:17px;line-height:1.47;color:var(--text);background:var(--white);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-
-body {
-  font-family: "SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size:17px; line-height:1.47059; color:var(--text); background:var(--white);
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
-}
-a { color:var(--blue); text-decoration:none; }
-a:hover { text-decoration:underline; }
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
 
 /* ── NAV ── */
-.local-nav {
-  position:fixed; top:0; left:0; right:0; z-index:9999;
+.local-nav{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
   background:rgba(255,255,255,.9);
   backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--border-light);
-  height:52px; display:flex; align-items:center;
+  height:52px;display:flex;align-items:center;
 }
-.local-nav-inner {
-  max-width:1100px; margin:0 auto; padding:0 28px;
-  display:flex; align-items:center; justify-content:space-between; width:100%;
+.local-nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;width:100%;
 }
-.ln-brand { font-size:21px; font-weight:600; color:var(--text); letter-spacing:-.01em; }
-.ln-links { display:flex; }
-.ln-link {
-  font-size:13px; color:var(--muted); text-decoration:none;
-  padding:0 16px; height:52px; display:flex; align-items:center;
-  border-bottom:2px solid transparent; transition:color .2s;
-  letter-spacing:-.01em;
+.ln-brand{font-size:21px;font-weight:600;color:var(--text);letter-spacing:-.01em;}
+.ln-links{display:flex;}
+.ln-link{
+  font-size:13px;color:var(--muted);text-decoration:none;
+  padding:0 16px;height:52px;display:flex;align-items:center;
+  border-bottom:2px solid transparent;transition:color .2s;letter-spacing:-.01em;
 }
-.ln-link:hover { color:var(--text); text-decoration:none; }
-.ln-link.active { color:var(--text); border-bottom-color:var(--text); }
+.ln-link:hover{color:var(--text);text-decoration:none;}
+.ln-link.active{color:var(--text);border-bottom-color:var(--text);}
 
-/* ── PAGE ── */
-.page { padding-top:52px; }
-.content { max-width:1100px; margin:0 auto; padding:0 28px; }
+.page{padding-top:52px;}
+.content{max-width:1100px;margin:0 auto;padding:0 28px;}
+.divider-section{border-top:1px solid var(--border-light);}
+.eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+.section-title{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;color:var(--text);margin-bottom:8px;}
+.section-sub{font-size:15px;color:var(--muted);margin-bottom:36px;letter-spacing:-.01em;}
 
 /* ── HERO ── */
-.hero-section {
-  text-align:center; padding:88px 28px 72px;
-  max-width:1100px; margin:0 auto;
+.hero-section{text-align:center;padding:88px 28px 72px;max-width:1100px;margin:0 auto;}
+.hero-section h1{font-size:clamp(40px,5.5vw,72px);font-weight:700;letter-spacing:-.025em;line-height:1.05;color:var(--text);margin-bottom:20px;}
+.hero-section .tagline{font-size:clamp(17px,2vw,21px);color:var(--muted);font-weight:400;line-height:1.5;max-width:580px;margin:0 auto 32px;letter-spacing:-.01em;}
+.hero-cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.apple-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:12px 22px;border-radius:980px;
+  font-size:15px;font-weight:400;text-decoration:none;
+  transition:all .15s;border:none;font-family:inherit;letter-spacing:-.01em;
 }
-.hero-section h1 {
-  font-size:clamp(40px,5.5vw,72px); font-weight:700;
-  letter-spacing:-.025em; line-height:1.05; color:var(--text); margin-bottom:20px;
-}
-.hero-section .tagline {
-  font-size:clamp(17px,2vw,21px); color:var(--muted); font-weight:400;
-  line-height:1.5; max-width:580px; margin:0 auto 32px; letter-spacing:-.01em;
-}
-.hero-cta-row { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.apple-btn-blue{background:var(--blue);color:#fff;}
+.apple-btn-blue:hover{background:#0077ed;text-decoration:none;}
+.apple-btn-outline{background:transparent;color:var(--blue);border:1px solid var(--blue);}
+.apple-btn-outline:hover{background:#e8f0fb;text-decoration:none;}
 
-.apple-btn {
-  display:inline-flex; align-items:center; gap:7px;
-  padding:12px 22px; border-radius:980px;
-  font-size:15px; font-weight:400; text-decoration:none;
-  transition:all .15s; border:none; font-family:inherit; letter-spacing:-.01em;
+/* ── CAT NAV ── */
+.cat-nav-wrap{border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);overflow-x:auto;scrollbar-width:none;}
+.cat-nav-wrap::-webkit-scrollbar{display:none;}
+.cat-nav{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;white-space:nowrap;}
+.cat-link{
+  font-size:13px;color:var(--muted);text-decoration:none;
+  padding:14px 16px;display:inline-flex;align-items:center;gap:7px;
+  border-bottom:2px solid transparent;transition:color .2s;flex-shrink:0;letter-spacing:-.01em;
 }
-.apple-btn-blue { background:var(--blue); color:#fff; }
-.apple-btn-blue:hover { background:#0077ed; text-decoration:none; }
-.apple-btn-outline { background:transparent; color:var(--blue); border:1px solid var(--blue); }
-.apple-btn-outline:hover { background:#e8f0fb; text-decoration:none; }
-
-/* ── CATEGORY NAV ── */
-.cat-nav-wrap {
-  border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);
-  overflow-x:auto; scrollbar-width:none;
-}
-.cat-nav-wrap::-webkit-scrollbar { display:none; }
-.cat-nav { max-width:1100px; margin:0 auto; padding:0 28px; display:flex; white-space:nowrap; }
-.cat-link {
-  font-size:13px; color:var(--muted); text-decoration:none;
-  padding:14px 16px; display:inline-flex; align-items:center; gap:7px;
-  border-bottom:2px solid transparent; transition:color .2s; flex-shrink:0; letter-spacing:-.01em;
-}
-.cat-link svg { width:15px; height:15px; }
-.cat-link:hover { color:var(--text); text-decoration:none; }
-.cat-link.active { color:var(--blue); border-bottom-color:var(--blue); }
-
-.divider-section { border-top:1px solid var(--border-light); }
-.eyebrow { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:6px; }
-.section-title { font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-.02em; color:var(--text); margin-bottom:8px; }
-.section-sub { font-size:15px; color:var(--muted); margin-bottom:36px; letter-spacing:-.01em; }
+.cat-link svg{width:15px;height:15px;}
+.cat-link:hover{color:var(--text);text-decoration:none;}
+.cat-link.active{color:var(--blue);border-bottom-color:var(--blue);}
 
 /* ── ABOUT ── */
-.about-wrap {
-  display:grid; grid-template-columns:1fr 320px;
-  gap:72px; align-items:start; padding:64px 0;
+.about-wrap{display:grid;grid-template-columns:1fr 320px;gap:72px;align-items:start;padding:64px 0;}
+.bio-greeting{font-size:15px;color:var(--muted);margin-bottom:4px;}
+.bio-name{font-size:clamp(30px,4vw,46px);font-weight:700;letter-spacing:-.025em;line-height:1.08;margin-bottom:22px;color:var(--text);}
+.bio-text p{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:14px;letter-spacing:-.01em;}
+.bio-quote{font-size:15px;color:var(--muted);line-height:1.7;font-style:italic;border-left:2px solid var(--border);padding-left:16px;margin-top:22px;letter-spacing:-.01em;}
+.bio-cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;}
+.profile-col{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.photo-frame{
+  width:210px;height:210px;border-radius:50%;overflow:hidden;
+  border:1px solid var(--border-light);box-shadow:0 2px 20px rgba(0,0,0,.09);
+  flex-shrink:0;background:var(--bg);position:relative;
+  display:flex;align-items:center;justify-content:center;
 }
-.bio-greeting { font-size:15px; color:var(--muted); margin-bottom:4px; }
-.bio-name {
-  font-size:clamp(30px,4vw,46px); font-weight:700; letter-spacing:-.025em;
-  line-height:1.08; margin-bottom:22px; color:var(--text);
-}
-.bio-text p { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:14px; letter-spacing:-.01em; }
-.bio-quote {
-  font-size:15px; color:var(--muted); line-height:1.7; font-style:italic;
-  border-left:2px solid var(--border); padding-left:16px; margin-top:22px; letter-spacing:-.01em;
-}
-.bio-cta { margin-top:24px; display:flex; gap:12px; flex-wrap:wrap; }
-
-/* ── PROFILE COLUMN ── */
-.profile-col { display:flex; flex-direction:column; align-items:center; gap:18px; }
-.photo-frame {
-  width:210px; height:210px; border-radius:50%; overflow:hidden;
-  border:1px solid var(--border-light); box-shadow:0 2px 20px rgba(0,0,0,.09);
-  flex-shrink:0; background:var(--bg);
-}
-.photo-frame img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-.profile-info { text-align:center; width:100%; }
-.profile-info h3 { font-size:18px; font-weight:700; margin-bottom:2px; letter-spacing:-.02em; }
-.profile-info .p-role { font-size:13px; color:var(--blue); margin-bottom:2px; }
-.profile-info .p-uni { font-size:12px; color:var(--muted); margin-bottom:14px; }
-.soc-row { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
-.soc-pill {
-  font-size:12px; color:var(--blue); background:var(--bg);
-  border:1px solid var(--border-light); padding:5px 13px;
-  border-radius:100px; text-decoration:none; transition:all .15s;
-}
-.soc-pill:hover { background:#e8f0fb; text-decoration:none; }
-.stats-row {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
-  background:var(--border-light); border:1px solid var(--border-light);
-  border-radius:10px; overflow:hidden; width:100%;
-}
-.stat-cell { background:var(--white); padding:16px 10px; text-align:center; }
-.stat-num { font-size:24px; font-weight:700; color:var(--text); letter-spacing:-.02em; }
-.stat-lbl { font-size:11px; color:var(--muted); margin-top:3px; }
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;}
+.photo-placeholder{font-size:56px;font-weight:700;color:#fff;font-family:-apple-system,sans-serif;}
+.profile-info{text-align:center;width:100%;}
+.profile-info h3{font-size:18px;font-weight:700;margin-bottom:2px;letter-spacing:-.02em;}
+.profile-info .p-role{font-size:13px;color:var(--blue);margin-bottom:2px;}
+.profile-info .p-uni{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.soc-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.soc-pill{font-size:12px;color:var(--blue);background:var(--bg);border:1px solid var(--border-light);padding:5px 13px;border-radius:100px;text-decoration:none;transition:all .15s;}
+.soc-pill:hover{background:#e8f0fb;text-decoration:none;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:10px;overflow:hidden;width:100%;}
+.stat-cell{background:var(--white);padding:16px 10px;text-align:center;}
+.stat-num{font-size:24px;font-weight:700;color:var(--text);letter-spacing:-.02em;}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:3px;}
 
 /* ── EXPERIENCE ── */
-.exp-list { border:1px solid var(--border-light); border-radius:12px; overflow:hidden; }
-.exp-row {
-  display:flex; align-items:center; gap:18px; padding:22px;
-  background:var(--white); border-bottom:1px solid var(--border-light);
-  transition:background .15s;
-}
-.exp-row:last-of-type { border-bottom:none; }
-.exp-row:hover { background:#f9f9fb; }
-.exp-icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.exp-main { flex:1; }
-.exp-main h3 { font-size:16px; font-weight:600; color:var(--text); margin-bottom:1px; letter-spacing:-.01em; }
-.exp-main .role { font-size:14px; color:var(--blue); margin-bottom:3px; }
-.exp-main .meta { font-size:12px; color:var(--muted); }
-.exp-right { display:flex; align-items:center; gap:10px; flex-shrink:0; }
-.badge { font-size:11px; font-weight:500; padding:3px 9px; border-radius:4px; white-space:nowrap; }
-.badge-blue   { background:#e8f0fb; color:#0071e3; }
-.badge-green  { background:#eaf7ee; color:#1d8348; }
-.badge-purple { background:#f0efff; color:#5856d6; }
-.badge-orange { background:#fff4e6; color:#9a4f00; }
-.round-chevron {
-  width:28px; height:28px; border-radius:50%; background:var(--bg); border:none;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .15s;
-}
-.round-chevron:hover { background:#d1d1d6; }
-.round-chevron svg { width:12px; height:12px; transition:transform .25s; }
-.round-chevron.open svg { transform:rotate(180deg); }
-.exp-detail {
-  display:none; padding:0 22px 20px; background:var(--white);
-  border-bottom:1px solid var(--border-light);
-}
-.exp-detail.open { display:block; }
-.exp-detail ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-.exp-detail li { font-size:14px; color:var(--muted); padding-left:16px; position:relative; line-height:1.55; letter-spacing:-.01em; }
-.exp-detail li::before { content:''; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; background:var(--blue); }
+.exp-list{border:1px solid var(--border-light);border-radius:12px;overflow:hidden;}
+.exp-row{display:flex;align-items:center;gap:18px;padding:22px;background:var(--white);border-bottom:1px solid var(--border-light);transition:background .15s;}
+.exp-row:last-of-type{border-bottom:none;}
+.exp-row:hover{background:#f9f9fb;}
+.exp-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.exp-main{flex:1;}
+.exp-main h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:1px;letter-spacing:-.01em;}
+.exp-main .role{font-size:14px;color:var(--blue);margin-bottom:3px;}
+.exp-main .meta{font-size:12px;color:var(--muted);}
+.exp-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.badge{font-size:11px;font-weight:500;padding:3px 9px;border-radius:4px;white-space:nowrap;}
+.badge-blue{background:#e8f0fb;color:#0071e3;}
+.badge-green{background:#eaf7ee;color:#1d8348;}
+.badge-purple{background:#f0efff;color:#5856d6;}
+.badge-orange{background:#fff4e6;color:#9a4f00;}
+.round-chevron{width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+.round-chevron:hover{background:#d1d1d6;}
+.round-chevron svg{width:12px;height:12px;transition:transform .25s;}
+.round-chevron.open svg{transform:rotate(180deg);}
+.exp-detail{display:none;padding:0 22px 20px;background:var(--white);border-bottom:1px solid var(--border-light);}
+.exp-detail.open{display:block;}
+.exp-detail ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.exp-detail li{font-size:14px;color:var(--muted);padding-left:16px;position:relative;line-height:1.55;letter-spacing:-.01em;}
+.exp-detail li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--blue);}
 
-/* ── PROJECTS ── */
-.proj-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
-  background:var(--border-light); border:1px solid var(--border-light); border-radius:12px; overflow:hidden;
+/* ── PROJECTS — center-stage carousel ── */
+.proj-section-wrap{position:relative;overflow:hidden;}
+/* fade edges */
+.proj-section-wrap::before,
+.proj-section-wrap::after{
+  content:'';position:absolute;top:0;bottom:20px;width:200px;
+  z-index:6;pointer-events:none;
 }
-.proj-card { background:var(--white); padding:26px 22px; }
-.proj-thumb { width:100%; aspect-ratio:16/9; border-radius:8px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; }
-.proj-thumb svg { opacity:.38; }
-.proj-card h4 { font-size:16px; font-weight:600; margin-bottom:6px; letter-spacing:-.01em; }
-.proj-card p { font-size:13px; color:var(--muted); line-height:1.55; margin-bottom:14px; letter-spacing:-.01em; }
-.proj-tags { display:flex; flex-wrap:wrap; gap:5px; }
-.proj-tag { font-size:11px; padding:3px 8px; border-radius:4px; background:var(--bg); color:var(--muted); border:1px solid var(--border-light); }
+.proj-section-wrap::before{left:0;background:linear-gradient(to right,rgba(255,255,255,1) 40%,rgba(255,255,255,0));}
+.proj-section-wrap::after{right:0;background:linear-gradient(to left,rgba(255,255,255,1) 40%,rgba(255,255,255,0));}
+
+.proj-track{
+  display:flex;align-items:center;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  padding:16px 0 24px;gap:24px;
+}
+.proj-track::-webkit-scrollbar{display:none;}
+/* spacers to allow first/last to center */
+.proj-spacer{flex:0 0 calc(50vw - 210px);min-width:80px;}
+
+/* each card */
+.proj-card{
+  flex:0 0 400px;scroll-snap-align:center;
+  background:var(--white);border-radius:16px;
+  border:1.5px solid var(--border-light);
+  overflow:visible;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  transition:opacity .4s ease,filter .4s ease,transform .4s ease,box-shadow .4s;
+  opacity:.35;filter:blur(2.5px);transform:scale(.92);
+  position:relative;
+}
+.proj-card.active{
+  opacity:1;filter:blur(0);transform:scale(1);
+  box-shadow:0 8px 32px rgba(0,0,0,.13);
+}
+.proj-card-inner{
+  border-radius:14px;overflow:hidden;position:relative;z-index:1;
+}
+
+/* ── SPARK CANVAS border ── */
+.proj-card .spark-canvas{
+  position:absolute;inset:-3px;border-radius:18px;
+  pointer-events:none;z-index:0;opacity:0;
+  transition:opacity .3s;
+}
+.proj-card.active:hover .spark-canvas{opacity:1;}
+
+.proj-thumb{width:100%;height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--bg);}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-thumb-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.proj-thumb-fallback svg{opacity:.38;}
+.proj-body{padding:20px 20px 22px;}
+.proj-body h4{font-size:16px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;}
+.proj-body p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px;letter-spacing:-.01em;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.proj-tag{font-size:11px;padding:3px 8px;border-radius:4px;background:var(--bg);color:var(--muted);border:1px solid var(--border-light);}
+
+/* arrows */
+.proj-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.95);border:1px solid var(--border-light);
+  box-shadow:0 2px 12px rgba(0,0,0,.12);
+  display:flex;align-items:center;justify-content:center;
+  z-index:10;transition:all .18s;
+}
+.proj-arrow:hover{box-shadow:0 4px 18px rgba(0,0,0,.18);}
+.proj-arrow svg{width:14px;height:14px;}
+.proj-arrow.left{left:12px;}
+.proj-arrow.right{right:12px;}
 
 /* ── SKILLS ── */
-.skills-grid {
-  display:grid; grid-template-columns:1fr 1fr; gap:1px;
-  background:var(--border-light); border:1px solid var(--border-light); border-radius:12px; overflow:hidden;
-}
-.skill-block { background:var(--white); padding:16px 18px; }
-.skill-block h4 { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-bottom:12px; }
-.chip-row { display:flex; flex-wrap:wrap; gap:6px; }
-.chip { font-size:13px; padding:5px 12px; border-radius:100px; background:var(--bg); color:var(--text); border:1px solid var(--border-light); letter-spacing:-.01em; }
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;}
+.skill-block{background:var(--white);padding:16px 18px;}
+.skill-block h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px;}
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-size:13px;padding:5px 12px;border-radius:100px;background:var(--bg);color:var(--text);border:1px solid var(--border-light);letter-spacing:-.01em;}
 
 /* ── EDUCATION ── */
-.edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.edu-card { border-radius:12px; padding:28px; border:1px solid var(--border-light); }
-.edu-card.blue { background:linear-gradient(145deg,#0071e3,#2c86f5); color:#fff; }
-.edu-card.purple { background:linear-gradient(145deg,#5856d6,#8b5cf6); color:#fff; }
-.edu-uni { font-size:19px; font-weight:700; margin-bottom:4px; letter-spacing:-.01em; }
-.edu-deg { font-size:14px; opacity:.88; margin-bottom:5px; }
-.edu-period { font-size:12px; opacity:.65; margin-bottom:16px; }
-.edu-chips { display:flex; flex-wrap:wrap; gap:6px; }
-.edu-chip { font-size:11px; padding:4px 10px; border-radius:4px; background:rgba(255,255,255,.2); color:#fff; border:1px solid rgba(255,255,255,.15); }
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.edu-card{border-radius:12px;padding:28px;border:1px solid var(--border-light);}
+.edu-card.blue{background:linear-gradient(145deg,#0071e3,#2c86f5);color:#fff;}
+.edu-card.purple{background:linear-gradient(145deg,#5856d6,#8b5cf6);color:#fff;}
+.edu-uni{font-size:19px;font-weight:700;margin-bottom:4px;letter-spacing:-.01em;}
+.edu-deg{font-size:14px;opacity:.88;margin-bottom:5px;}
+.edu-period{font-size:12px;opacity:.65;margin-bottom:16px;}
+.edu-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.edu-chip{font-size:11px;padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.15);}
+
+/* ── EVENT ── */
+.event-section{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:60px 0;}
+.event-img{border-radius:14px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.09);aspect-ratio:4/3;background:var(--bg);}
+.event-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.event-text h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px;}
+.event-text p{font-size:16px;color:var(--muted);line-height:1.75;letter-spacing:-.01em;}
 
 /* ── CONTACT ── */
-.contact-section { background:var(--bg); border-top:1px solid var(--border-light); text-align:center; padding:80px 28px; }
-.contact-section h2 { font-size:clamp(28px,4vw,44px); font-weight:700; letter-spacing:-.025em; margin-bottom:14px; }
-.contact-section p { font-size:17px; color:var(--muted); margin-bottom:32px; letter-spacing:-.01em; }
-.cta-row { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
-.contact-meta { display:flex; justify-content:center; gap:36px; margin-top:32px; flex-wrap:wrap; }
-.c-item { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); text-decoration:none; letter-spacing:-.01em; }
-.c-item svg { width:16px; height:16px; color:var(--blue); flex-shrink:0; }
-.c-item span { color:var(--blue); }
-.c-item:hover span { text-decoration:underline; }
+.contact-section{background:var(--bg);border-top:1px solid var(--border-light);text-align:center;padding:80px 28px;}
+.contact-section h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.025em;margin-bottom:32px;}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.contact-meta{display:flex;justify-content:center;gap:36px;margin-top:32px;flex-wrap:wrap;}
+.c-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);text-decoration:none;letter-spacing:-.01em;}
+.c-item svg{width:16px;height:16px;color:var(--blue);flex-shrink:0;}
+.c-item span{color:var(--blue);}
+.c-item:hover span{text-decoration:underline;}
 
-footer { border-top:1px solid var(--border-light); padding:20px 28px; text-align:center; font-size:12px; color:var(--muted); }
-footer a { color:var(--muted); }
-footer a:hover { color:var(--blue); }
+footer{border-top:1px solid var(--border-light);padding:20px 28px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);}
+footer a:hover{color:var(--blue);}
 
 @media(max-width:900px){
-  .about-wrap { grid-template-columns:1fr; gap:40px; }
-  .proj-grid { grid-template-columns:1fr 1fr; }
-  .edu-grid { grid-template-columns:1fr; }
-  .ln-links { display:none; }
+  .about-wrap{grid-template-columns:1fr;gap:40px;}
+  .edu-grid{grid-template-columns:1fr;}
+  .event-section{grid-template-columns:1fr;gap:28px;}
+  .ln-links{display:none;}
+  .proj-spacer{flex:0 0 40px;}
 }
 @media(max-width:600px){
-  .proj-grid { grid-template-columns:1fr; }
-  .skills-grid { grid-template-columns:1fr; }
-  .hero-section { padding:60px 20px 48px; }
+  .skills-grid{grid-template-columns:1fr;}
+  .hero-section{padding:60px 20px 48px;}
+  .proj-card{flex:0 0 280px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ── Custom Cursor ── -->
 <div id="cursor"></div>
 <div id="cursor-dot"></div>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <div class="local-nav">
   <div class="local-nav-inner">
     <div class="ln-brand">Product Manager</div>
     <div class="ln-links">
-      <a href="#about"      class="ln-link" onclick="smoothTo('about',event)">Overview</a>
+      <a href="#about"      class="ln-link active" onclick="smoothTo('about',event)">Overview</a>
       <a href="#experience" class="ln-link" onclick="smoothTo('experience',event)">Experience</a>
       <a href="#projects"   class="ln-link" onclick="smoothTo('projects',event)">Projects</a>
       <a href="#skills"     class="ln-link" onclick="smoothTo('skills',event)">Skills</a>
@@ -301,300 +298,257 @@ footer a:hover { color:var(--blue); }
 
 <div class="page">
 
-  <!-- ── HERO ── -->
-  <div class="hero-section">
-    <h1>Sneha Singh</h1>
-    <p class="tagline">Turning complex ideas into meaningful products through design, data, and collaboration.</p>
-    <div class="hero-cta-row">
-      <a href="#about"   class="apple-btn apple-btn-blue"    onclick="smoothTo('about',event)">View Overview</a>
-      <a href="#contact" class="apple-btn apple-btn-outline" onclick="smoothTo('contact',event)">Get in Touch</a>
-    </div>
+<!-- HERO -->
+<div class="hero-section">
+  <h1>Sneha Singh</h1>
+  <p class="tagline">Turning complex ideas into meaningful products through design, data, and collaboration.</p>
+  <div class="hero-cta-row">
+    <a href="#about"   class="apple-btn apple-btn-blue"    onclick="smoothTo('about',event)">View Overview</a>
+    <a href="#contact" class="apple-btn apple-btn-outline" onclick="smoothTo('contact',event)">Get in Touch</a>
   </div>
-
-  <!-- ── CATEGORY NAV ── -->
-  <div class="cat-nav-wrap">
-    <div class="cat-nav">
-      <a href="#about"      class="cat-link active" onclick="smoothTo('about',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About
-      </a>
-      <a href="#experience" class="cat-link" onclick="smoothTo('experience',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Experience
-      </a>
-      <a href="#projects"   class="cat-link" onclick="smoothTo('projects',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Projects
-      </a>
-      <a href="#skills"     class="cat-link" onclick="smoothTo('skills',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Skills
-      </a>
-      <a href="#education"  class="cat-link" onclick="smoothTo('education',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Education
-      </a>
-      <a href="#contact"    class="cat-link" onclick="smoothTo('contact',event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Contact
-      </a>
-    </div>
-  </div>
-
-  <!-- ══ ABOUT ══ -->
-  <div class="divider-section" id="about"></div>
-  <div class="content">
-    <div class="about-wrap">
-
-      <div class="bio-text">
-        <p class="bio-greeting">Hello there!</p>
-        <h2 class="bio-name">I'm Sneha<br><span style="color:var(--muted);font-weight:300;font-size:clamp(20px,2.5vw,30px);">Welcome — glad you stopped by :)</span></h2>
-        <p>I'm a Product Manager who loves turning messy ideas into meaningful products people actually enjoy using. I bring together creativity, structure, and a strong sense of curiosity to make things that work — and feel right.</p>
-        <p>Over the past few years, I've worked on projects ranging from survey automation tools to AI-driven platforms and social apps. My favorite part of product management is being in that space where user problems meet design, data, and development. Whether it's mapping a user flow, running a usability test, or writing a PRD that engineers enjoy reading, I'm happiest when the work feels collaborative and purposeful.</p>
-        <p>Lately, I've been building and experimenting with products like <strong style="color:var(--text);font-weight:600;">Keepin AI</strong> and <strong style="color:var(--text);font-weight:600;">Monarch</strong>, each focused on solving real problems through simple, thoughtful experiences.</p>
-        <p class="bio-quote">If we ever cross paths, I hope it's because we both believe that great products are not just built — they are continuously shaped by curiosity, empathy, and learning.</p>
-        <div class="bio-cta">
-          <a href="mailto:snehassingh27@gmail.com" class="apple-btn apple-btn-blue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Email
-          </a>
-          <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="apple-btn apple-btn-outline">LinkedIn</a>
-          <a href="https://github.com/snehassingh27" target="_blank" class="apple-btn apple-btn-outline">GitHub</a>
-        </div>
-      </div>
-
-      <div class="profile-col">
-        <!-- Photo: using data URI placeholder that loads the real image via JS -->
-        <div class="photo-frame" id="photoFrame">
-          <img src="photo.jpg" alt="Sneha Singh"
-            style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
-            onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='flex';"
-          />
-          <div id="photoPlaceholder" style="display:none;position:absolute;inset:0;background:linear-gradient(135deg,#0071e3,#5856d6);align-items:center;justify-content:center;font-size:56px;font-weight:700;color:#fff;font-family:-apple-system,sans-serif;">SS</div>
-        </div>
-        <div class="profile-info">
-          <h3>Sneha Singh</h3>
-          <div class="p-role">Founding Product Lead · Keepin AI</div>
-          <div class="p-uni">MSc Project Management · Northeastern</div>
-          <div class="soc-row">
-            <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="soc-pill">LinkedIn</a>
-            <a href="https://github.com/snehassingh27" target="_blank" class="soc-pill">GitHub</a>
-            <a href="https://www.instagram.com/sneha270011/" target="_blank" class="soc-pill">Instagram</a>
-          </div>
-        </div>
-        <div class="stats-row">
-          <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-lbl">Years PM</div></div>
-          <div class="stat-cell"><div class="stat-num">10+</div><div class="stat-lbl">Products</div></div>
-          <div class="stat-cell"><div class="stat-num">25K</div><div class="stat-lbl">Art Followers</div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ══ EXPERIENCE ══ -->
-  <div class="divider-section" id="experience" style="margin-top:40px;"></div>
-  <div class="content" style="padding-top:52px;padding-bottom:60px;">
-    <div class="eyebrow">Career Journey</div>
-    <div class="section-title">Work Experience</div>
-    <div class="section-sub">Tap any role to expand details.</div>
-    <div class="exp-list">
-
-      <div>
-        <div class="exp-row" onclick="toggleExp(this)">
-          <div class="exp-icon" style="background:#e8f0fb;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-          </div>
-          <div class="exp-main">
-            <h3>Keepin — Early-Stage AI Startup</h3>
-            <div class="role">Founding Product Lead</div>
-            <div class="meta">January 2025 – Present · New York, NY</div>
-          </div>
-          <div class="exp-right">
-            <span class="badge badge-blue">Current</span>
-            <button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          </div>
-        </div>
-        <div class="exp-detail">
-          <ul>
-            <li>Led AI, ML & LLM SaaS delivery via CI/CD pipelines in Azure DevOps — increased release velocity 30%</li>
-            <li>Executed end-to-end product roadmap via Agile leadership; launched MVP aligned to GTM strategy</li>
-            <li>Led backlog grooming & sprint planning in Jira & Confluence — saved $20K in development costs</li>
-            <li>Delivered 50+ prioritized epics; managed configuration and regression testing, reduced errors 25%</li>
-            <li>Performed user requirements analysis & mapped workflows — 20% boost in operations</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="exp-row" onclick="toggleExp(this)">
-          <div class="exp-icon" style="background:#eaf7ee;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-          <div class="exp-main">
-            <h3>IntelliSurvey</h3>
-            <div class="role">Project Management Intern</div>
-            <div class="meta">September – December 2024 · California</div>
-          </div>
-          <div class="exp-right">
-            <span class="badge badge-green">Intern</span>
-            <button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          </div>
-        </div>
-        <div class="exp-detail">
-          <ul>
-            <li>Ran A/B tests on survey flows; applied hypothesis testing — drove user-centered iterations by 25%</li>
-            <li>Coded surveys in JavaScript & Perl; coordinated QA and UAT</li>
-            <li>Integrated API technical writing & client feedback in Agile backlog — sped up flow 15%</li>
-            <li>Created Jira tickets for UAT GitHub integration; improved release quality & stakeholder satisfaction</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="exp-row" onclick="toggleExp(this)">
-          <div class="exp-icon" style="background:#f0efff;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5856d6" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="exp-main">
-            <h3>Keyed Brick</h3>
-            <div class="role">Product Manager Volunteer</div>
-            <div class="meta">April – July 2024 · Massachusetts</div>
-          </div>
-          <div class="exp-right">
-            <span class="badge badge-purple">Volunteer</span>
-            <button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          </div>
-        </div>
-        <div class="exp-detail">
-          <ul>
-            <li>Led sprint planning & backlog grooming in Monday.com — reduced project delays 20%</li>
-            <li>Organized user interviews to map pain points, aligning product vision with user needs</li>
-            <li>Consulted clients & negotiated with vendors; secured cost-effective resources</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="exp-row" onclick="toggleExp(this)">
-          <div class="exp-icon" style="background:#fff4e6;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a4f00" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="exp-main">
-            <h3>GJAM Technologies</h3>
-            <div class="role">Technical Product Manager</div>
-            <div class="meta">January 2020 – August 2023 · Mumbai, India</div>
-          </div>
-          <div class="exp-right">
-            <span class="badge badge-orange">3.5 yrs</span>
-            <button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-          </div>
-        </div>
-        <div class="exp-detail">
-          <ul>
-            <li>Delivered 10+ SaaS module rollouts; SQL & Tableau for data-driven decisions</li>
-            <li>Created PRDs with Figma mockups — improved page discoverability & load performance 50% via SEO</li>
-            <li>Tested API endpoints & validated JSON in UAT — reduced post-release bugs 30%</li>
-            <li>Analyzed market trends & user feedback — improved strategic planning 60%</li>
-            <li>Tracked KPIs in Tableau dashboards; increased customer retention 15%</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ══ PROJECTS ══ -->
-  <div class="divider-section" id="projects"></div>
-  <div class="content" style="padding-top:52px;padding-bottom:60px;">
-    <div class="eyebrow">What I've Built</div>
-    <div class="section-title">Projects</div>
-    <div class="section-sub">Personal and professional products built with curiosity and care.</div>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#e8f0fb,#d2e3fc);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-        <h4>Monarch</h4>
-        <p>Professional solution networking SaaS. React, TypeScript & Tailwind frontend with Express.js, Node.js, Socket.IO backend and AWS/PostgreSQL deployment.</p>
-        <div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Node.js</span><span class="proj-tag">AWS</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#eaf7ee,#c6efce);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <h4>Keepin AI</h4>
-        <p>AI-powered SaaS startup as Founding Product Lead. Delivered LLM features via CI/CD, launched MVP with 30% increase in release velocity.</p>
-        <div class="proj-tags"><span class="proj-tag">Azure DevOps</span><span class="proj-tag">LLM</span><span class="proj-tag">Jira</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#fff4e6,#fde9c8);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9a4f00" stroke-width="1.4" stroke-linecap="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h4>PGinout</h4>
-        <p>Room rental app targeting property owners and budget-conscious travelers as an affordable Airbnb alternative. React.js/Next.js & Node.js.</p>
-        <div class="proj-tags"><span class="proj-tag">React.js</span><span class="proj-tag">Next.js</span><span class="proj-tag">Node.js</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#f0efff,#e2dfff);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#5856d6" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h4>NoChoice Alarm</h4>
-        <p>Android discipline alarm — "night-self makes decisions, morning-self has no vote." Finite snooze and mandatory wake tasks.</p>
-        <div class="proj-tags"><span class="proj-tag">Android</span><span class="proj-tag">UX Design</span><span class="proj-tag">Behavioral</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#fef0f0,#fdd5d5);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-        <h4>Agile Minecraft</h4>
-        <p>Daily Minecraft activities documented with weekly sprint retrospectives in Trello, performing Scrum Master, PO, QA & Developer roles.</p>
-        <div class="proj-tags"><span class="proj-tag">Agile</span><span class="proj-tag">Scrum</span><span class="proj-tag">Trello</span></div>
-      </div>
-      <div class="proj-card">
-        <div class="proj-thumb" style="background:linear-gradient(135deg,#e8f8ff,#c8eaf7);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0072a3" stroke-width="1.4" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-        <h4>Cambium Network</h4>
-        <p>Project charter, WBS, risk register & Gantt charts in MS Project. $50K+ cost estimation; delivered within 10% of projected timeline.</p>
-        <div class="proj-tags"><span class="proj-tag">MS Project</span><span class="proj-tag">WBS</span><span class="proj-tag">Risk Register</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ SKILLS ══ -->
-  <div class="divider-section" id="skills"></div>
-  <div class="content" style="padding-top:36px;padding-bottom:40px;">
-    <div class="eyebrow">Toolkit</div>
-    <div class="section-title" style="margin-bottom:16px;">Skills & Tools</div>
-    <div class="skills-grid" style="margin-top:12px;">
-      <div class="skill-block"><h4>PM & Agile</h4><div class="chip-row"><span class="chip">Agile / Scrum</span><span class="chip">Kanban</span><span class="chip">Sprint Planning</span><span class="chip">Backlog Grooming</span><span class="chip">Roadmapping</span><span class="chip">PRD Writing</span><span class="chip">UAT / QA</span><span class="chip">OKRs / KPIs</span></div></div>
-      <div class="skill-block"><h4>Data & Analytics</h4><div class="chip-row"><span class="chip">SQL</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">A/B Testing</span></div></div>
-      <div class="skill-block"><h4>Design & UX</h4><div class="chip-row"><span class="chip">Figma</span><span class="chip">Miro</span><span class="chip">UX Research</span><span class="chip">Usability Testing</span><span class="chip">User Interviews</span><span class="chip">Journey Mapping</span><span class="chip">Adobe Suite</span></div></div>
-      <div class="skill-block"><h4>Technical</h4><div class="chip-row"><span class="chip">React / Next.js</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">AWS / Azure</span><span class="chip">JavaScript</span><span class="chip">CI/CD</span><span class="chip">API Testing</span></div></div>
-      <div class="skill-block"><h4>Project Tools</h4><div class="chip-row"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Smartsheet</span><span class="chip">Azure DevOps</span><span class="chip">Asana</span><span class="chip">Monday.com</span><span class="chip">SharePoint</span></div></div>
-      <div class="skill-block"><h4>AI & CRM</h4><div class="chip-row"><span class="chip">OpenAI / ChatGPT</span><span class="chip">GitHub Copilot</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">Salesforce</span><span class="chip">HubSpot</span><span class="chip">Zendesk</span></div></div>
-    </div>
-  </div>
-
-  <!-- ══ EDUCATION ══ -->
-  <div class="divider-section" id="education"></div>
-  <div class="content" style="padding-top:52px;padding-bottom:60px;">
-    <div class="eyebrow">Education</div>
-    <div class="section-title">Academic Background</div>
-    <div class="edu-grid" style="margin-top:28px;">
-      <div class="edu-card blue">
-        <div class="edu-uni">Northeastern University</div>
-        <div class="edu-deg">MSc in Project Management</div>
-        <div class="edu-period">Boston, MA · Sep 2023 – Jun 2025</div>
-        <div class="edu-chips"><span class="edu-chip">Agile</span><span class="edu-chip">Scope Management</span><span class="edu-chip">Risk Management</span><span class="edu-chip">UX Design</span><span class="edu-chip">Data Analytics</span><span class="edu-chip">PMP (in progress)</span></div>
-      </div>
-      <div class="edu-card purple">
-        <div class="edu-uni">SNDT University</div>
-        <div class="edu-deg">BSc in Computer Application</div>
-        <div class="edu-period">Mumbai, India · Jul 2018 – Jun 2021</div>
-        <div class="edu-chips"><span class="edu-chip">Java</span><span class="edu-chip">SQL</span><span class="edu-chip">JavaScript</span><span class="edu-chip">Python</span><span class="edu-chip">Database Management</span><span class="edu-chip">Unix / Linux</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ CONTACT ══ -->
-  <div class="contact-section" id="contact">
-    <h2>Let's work together.</h2>
-    <div class="cta-row">
-      <a href="mailto:snehassingh27@gmail.com" class="apple-btn apple-btn-blue">Send Email</a>
-      <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="apple-btn apple-btn-outline">LinkedIn</a>
-      <a href="https://github.com/snehassingh27" target="_blank" class="apple-btn apple-btn-outline">GitHub</a>
-    </div>
-    <div class="contact-meta">
-      <a href="tel:8572699304" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg><span>(857) 269-9304</span></a>
-      <a href="https://www.instagram.com/sneha270011/" target="_blank" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
-      <a href="https://www.youtube.com/@Snehasince20as" target="_blank" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg><span>YouTube</span></a>
-    </div>
-  </div>
-
 </div>
+
+<!-- CAT NAV -->
+<div class="cat-nav-wrap">
+  <div class="cat-nav">
+    <a href="#about"      class="cat-link active" onclick="smoothTo('about',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a>
+    <a href="#experience" class="cat-link" onclick="smoothTo('experience',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Experience</a>
+    <a href="#projects"   class="cat-link" onclick="smoothTo('projects',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Projects</a>
+    <a href="#skills"     class="cat-link" onclick="smoothTo('skills',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Skills</a>
+    <a href="#education"  class="cat-link" onclick="smoothTo('education',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Education</a>
+    <a href="#contact"    class="cat-link" onclick="smoothTo('contact',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Contact</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="divider-section" id="about"></div>
+<div class="content">
+  <div class="about-wrap">
+    <div class="bio-text">
+      <p class="bio-greeting">Hello there!</p>
+      <h2 class="bio-name">I'm Sneha<br><span style="color:var(--muted);font-weight:300;font-size:clamp(20px,2.5vw,30px);">Welcome — glad you stopped by :)</span></h2>
+      <p>I'm a Product Manager who loves turning messy ideas into meaningful products people actually enjoy using. I bring together creativity, structure, and a strong sense of curiosity to make things that work — and feel right.</p>
+      <p>Over the past few years, I've worked on projects ranging from survey automation tools to AI-driven platforms and social apps. My favorite part of product management is being in that space where user problems meet design, data, and development. Whether it's mapping a user flow, running a usability test, or writing a PRD that engineers enjoy reading, I'm happiest when the work feels collaborative and purposeful.</p>
+      <p>Lately, I've been building and experimenting with products like <strong style="color:var(--text);font-weight:600;">Keepin AI</strong> and <strong style="color:var(--text);font-weight:600;">Monarch</strong>, each focused on solving real problems through simple, thoughtful experiences.</p>
+      <p class="bio-quote">If we ever cross paths, I hope it's because we both believe that great products are not just built — they are continuously shaped by curiosity, empathy, and learning.</p>
+      <div class="bio-cta">
+        <a href="mailto:snehassingh27@gmail.com" class="apple-btn apple-btn-blue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Email</a>
+        <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="apple-btn apple-btn-outline">LinkedIn</a>
+        <a href="https://github.com/snehassingh27" target="_blank" class="apple-btn apple-btn-outline">GitHub</a>
+      </div>
+    </div>
+    <div class="profile-col">
+      <div class="photo-frame" id="photoFrame">
+        <div class="photo-placeholder" id="photoPlaceholder" style="background:linear-gradient(135deg,#0071e3,#5856d6);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:700;color:#fff;">SS</div>
+        <img id="profileImg" src="photo.jpg" alt="Sneha Singh"
+          onload="document.getElementById('photoPlaceholder').style.display='none';this.style.display='block';"
+          onerror="this.style.display='none';"
+          style="display:none;"/>
+      </div>
+      <div class="profile-info">
+        <h3>Sneha Singh</h3>
+        <div class="p-role">Founding Product Lead · Keepin AI</div>
+        <div class="p-uni">MSc Project Management · Northeastern</div>
+        <div class="soc-row">
+          <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="soc-pill">LinkedIn</a>
+          <a href="https://github.com/snehassingh27" target="_blank" class="soc-pill">GitHub</a>
+          <a href="https://www.instagram.com/sneha270011/" target="_blank" class="soc-pill">Instagram</a>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-lbl">Years PM</div></div>
+        <div class="stat-cell"><div class="stat-num">10+</div><div class="stat-lbl">Products</div></div>
+        <div class="stat-cell"><div class="stat-num">25K</div><div class="stat-lbl">Art Followers</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="divider-section" id="experience" style="margin-top:40px;"></div>
+<div class="content" style="padding-top:52px;padding-bottom:60px;">
+  <div class="eyebrow">Career Journey</div>
+  <div class="section-title">Work Experience</div>
+  <div class="section-sub">Tap any role to expand details.</div>
+  <div class="exp-list">
+    <div>
+      <div class="exp-row" onclick="toggleExp(this)">
+        <div class="exp-icon" style="background:#e8f0fb;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div class="exp-main"><h3>Keepin — Early-Stage AI Startup</h3><div class="role">Founding Product Lead</div><div class="meta">January 2025 – Present · New York, NY</div></div>
+        <div class="exp-right"><span class="badge badge-blue">Current</span><button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+      </div>
+      <div class="exp-detail"><ul>
+        <li>Led AI, ML & LLM SaaS delivery via CI/CD pipelines in Azure DevOps — increased release velocity 30%</li>
+        <li>Executed end-to-end product roadmap via Agile leadership; launched MVP aligned to GTM strategy</li>
+        <li>Led backlog grooming & sprint planning in Jira & Confluence — saved $20K in development costs</li>
+        <li>Delivered 50+ prioritized epics; managed configuration and regression testing, reduced errors 25%</li>
+        <li>Performed user requirements analysis & mapped workflows — 20% boost in operations</li>
+      </ul></div>
+    </div>
+    <div>
+      <div class="exp-row" onclick="toggleExp(this)">
+        <div class="exp-icon" style="background:#eaf7ee;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="exp-main"><h3>IntelliSurvey</h3><div class="role">Project Management Intern</div><div class="meta">September – December 2024 · California</div></div>
+        <div class="exp-right"><span class="badge badge-green">Intern</span><button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+      </div>
+      <div class="exp-detail"><ul>
+        <li>Ran A/B tests on survey flows; applied hypothesis testing — drove user-centered iterations by 25%</li>
+        <li>Coded surveys in JavaScript & Perl; coordinated QA and UAT</li>
+        <li>Integrated API technical writing & client feedback in Agile backlog — sped up flow 15%</li>
+        <li>Created Jira tickets for UAT GitHub integration; improved release quality & stakeholder satisfaction</li>
+      </ul></div>
+    </div>
+    <div>
+      <div class="exp-row" onclick="toggleExp(this)">
+        <div class="exp-icon" style="background:#f0efff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5856d6" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="exp-main"><h3>Keyed Brick</h3><div class="role">Product Manager Volunteer</div><div class="meta">April – July 2024 · Massachusetts</div></div>
+        <div class="exp-right"><span class="badge badge-purple">Volunteer</span><button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+      </div>
+      <div class="exp-detail"><ul>
+        <li>Led sprint planning & backlog grooming in Monday.com — reduced project delays 20%</li>
+        <li>Organized user interviews to map pain points, aligning product vision with user needs</li>
+        <li>Consulted clients & negotiated with vendors; secured cost-effective resources</li>
+      </ul></div>
+    </div>
+    <div>
+      <div class="exp-row" onclick="toggleExp(this)">
+        <div class="exp-icon" style="background:#fff4e6;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a4f00" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="exp-main"><h3>GJAM Technologies</h3><div class="role">Technical Product Manager</div><div class="meta">January 2020 – August 2023 · Mumbai, India</div></div>
+        <div class="exp-right"><span class="badge badge-orange">3.5 yrs</span><button class="round-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+      </div>
+      <div class="exp-detail"><ul>
+        <li>Delivered 10+ SaaS module rollouts; SQL & Tableau for data-driven decisions</li>
+        <li>Created PRDs with Figma mockups — improved page discoverability & load performance 50% via SEO</li>
+        <li>Tested API endpoints & validated JSON in UAT — reduced post-release bugs 30%</li>
+        <li>Analyzed market trends & user feedback — improved strategic planning 60%</li>
+        <li>Tracked KPIs in Tableau dashboards; increased customer retention 15%</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="divider-section" id="projects"></div>
+<div class="content" style="padding-top:52px;padding-bottom:60px;">
+  <div class="eyebrow">What I've Built</div>
+  <div class="section-title">Projects</div>
+  <div class="section-sub">Scroll or use arrows to explore.</div>
+</div>
+<div class="proj-section-wrap">
+  <button class="proj-arrow left" onclick="scrollProj(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="proj-arrow right" onclick="scrollProj(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+
+  <div class="proj-track" id="projTrack">
+    <div class="proj-spacer"></div>
+
+    <div class="proj-card" data-idx="0">
+      <canvas class="spark-canvas" id="spark0"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p1.jpg" alt="Monarch" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#e8f0fb,#d2e3fc);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div></div>
+        <div class="proj-body"><h4>Monarch</h4><p>Professional solution networking SaaS. React, TypeScript & Tailwind frontend with Express.js, Node.js, Socket.IO backend and AWS/PostgreSQL deployment.</p><div class="proj-tags"><span class="proj-tag">React</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Node.js</span><span class="proj-tag">AWS</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-idx="1">
+      <canvas class="spark-canvas" id="spark1"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p2.jpg" alt="Keepin AI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#eaf7ee,#c6efce);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div>
+        <div class="proj-body"><h4>Keepin AI</h4><p>AI-powered SaaS startup as Founding Product Lead. Delivered LLM features via CI/CD, launched MVP with 30% increase in release velocity.</p><div class="proj-tags"><span class="proj-tag">Azure DevOps</span><span class="proj-tag">LLM</span><span class="proj-tag">Jira</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-idx="2">
+      <canvas class="spark-canvas" id="spark2"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p3.jpg" alt="PGinout" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#fff4e6,#fde9c8);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9a4f00" stroke-width="1.4" stroke-linecap="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div>
+        <div class="proj-body"><h4>PGinout</h4><p>Room rental app targeting property owners and budget-conscious travelers as an affordable Airbnb alternative. React.js/Next.js & Node.js.</p><div class="proj-tags"><span class="proj-tag">React.js</span><span class="proj-tag">Next.js</span><span class="proj-tag">Node.js</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-idx="3">
+      <canvas class="spark-canvas" id="spark3"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p4.jpg" alt="NoChoice" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#f0efff,#e2dfff);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#5856d6" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+        <div class="proj-body"><h4>NoChoice Alarm</h4><p>Android discipline alarm — "night-self makes decisions, morning-self has no vote." Finite snooze and mandatory wake tasks.</p><div class="proj-tags"><span class="proj-tag">Android</span><span class="proj-tag">UX Design</span><span class="proj-tag">Behavioral</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-idx="4">
+      <canvas class="spark-canvas" id="spark4"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p5.jpg" alt="Agile Minecraft" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#fef0f0,#fdd5d5);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div>
+        <div class="proj-body"><h4>Agile Minecraft</h4><p>Daily Minecraft activities documented with weekly sprint retrospectives in Trello, performing Scrum Master, PO, QA & Developer roles.</p><div class="proj-tags"><span class="proj-tag">Agile</span><span class="proj-tag">Scrum</span><span class="proj-tag">Trello</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-card" data-idx="5">
+      <canvas class="spark-canvas" id="spark5"></canvas>
+      <div class="proj-card-inner">
+        <div class="proj-thumb"><img src="p6.jpg" alt="Cambium" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="proj-thumb-fallback" style="display:none;background:linear-gradient(135deg,#e8f8ff,#c8eaf7);"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0072a3" stroke-width="1.4" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div></div>
+        <div class="proj-body"><h4>Cambium Network</h4><p>Project charter, WBS, risk register & Gantt charts in MS Project. $50K+ cost estimation; delivered within 10% of projected timeline.</p><div class="proj-tags"><span class="proj-tag">MS Project</span><span class="proj-tag">WBS</span><span class="proj-tag">Risk Register</span></div></div>
+      </div>
+    </div>
+
+    <div class="proj-spacer"></div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="divider-section" id="skills"></div>
+<div class="content" style="padding-top:36px;padding-bottom:40px;">
+  <div class="eyebrow">Toolkit</div>
+  <div class="section-title" style="margin-bottom:12px;">Skills & Tools</div>
+  <div class="skills-grid" style="margin-top:12px;">
+    <div class="skill-block"><h4>PM & Agile</h4><div class="chip-row"><span class="chip">Agile / Scrum</span><span class="chip">Kanban</span><span class="chip">Sprint Planning</span><span class="chip">Backlog Grooming</span><span class="chip">Roadmapping</span><span class="chip">PRD Writing</span><span class="chip">UAT / QA</span><span class="chip">OKRs / KPIs</span></div></div>
+    <div class="skill-block"><h4>Data & Analytics</h4><div class="chip-row"><span class="chip">SQL</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">A/B Testing</span></div></div>
+    <div class="skill-block"><h4>Design & UX</h4><div class="chip-row"><span class="chip">Figma</span><span class="chip">Miro</span><span class="chip">UX Research</span><span class="chip">Usability Testing</span><span class="chip">User Interviews</span><span class="chip">Journey Mapping</span><span class="chip">Adobe Suite</span></div></div>
+    <div class="skill-block"><h4>Technical</h4><div class="chip-row"><span class="chip">React / Next.js</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">AWS / Azure</span><span class="chip">JavaScript</span><span class="chip">CI/CD</span><span class="chip">API Testing</span></div></div>
+    <div class="skill-block"><h4>Project Tools</h4><div class="chip-row"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Smartsheet</span><span class="chip">Azure DevOps</span><span class="chip">Asana</span><span class="chip">Monday.com</span><span class="chip">SharePoint</span></div></div>
+    <div class="skill-block"><h4>AI & CRM</h4><div class="chip-row"><span class="chip">OpenAI / ChatGPT</span><span class="chip">GitHub Copilot</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">Salesforce</span><span class="chip">HubSpot</span><span class="chip">Zendesk</span></div></div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="divider-section" id="education"></div>
+<div class="content" style="padding-top:52px;padding-bottom:60px;">
+  <div class="eyebrow">Education</div>
+  <div class="section-title">Academic Background</div>
+  <div class="edu-grid" style="margin-top:28px;">
+    <div class="edu-card blue"><div class="edu-uni">Northeastern University</div><div class="edu-deg">MSc in Project Management</div><div class="edu-period">Boston, MA · Sep 2023 – Jun 2025</div><div class="edu-chips"><span class="edu-chip">Agile</span><span class="edu-chip">Scope Management</span><span class="edu-chip">Risk Management</span><span class="edu-chip">UX Design</span><span class="edu-chip">Data Analytics</span><span class="edu-chip">PMP (in progress)</span></div></div>
+    <div class="edu-card purple"><div class="edu-uni">SNDT University</div><div class="edu-deg">BSc in Computer Application</div><div class="edu-period">Mumbai, India · Jul 2018 – Jun 2021</div><div class="edu-chips"><span class="edu-chip">Java</span><span class="edu-chip">SQL</span><span class="edu-chip">JavaScript</span><span class="edu-chip">Python</span><span class="edu-chip">Database Management</span><span class="edu-chip">Unix / Linux</span></div></div>
+  </div>
+</div>
+
+<!-- EVENT MANAGEMENT -->
+<div class="divider-section" id="events"></div>
+<div class="content" style="padding-bottom:20px;">
+  <div class="event-section">
+    <div class="event-img"><img src="imageE.jpg" alt="Event Management" onerror="this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.style.display='none';"></div>
+    <div class="event-text">
+      <div class="eyebrow" style="margin-bottom:8px;">Beyond Product</div>
+      <h2>Event Management</h2>
+      <p>After five years in event planning, I've pretty much seen it all — last-minute venue changes, missing microphones, and VIPs who arrive fashionably early. I've wrangled vendors, stretched budgets like elastic, and coordinated everything from full-blown conferences to high-energy gigs like TechGig and the Hotstar IPL (yes, the real deal).</p>
+      <p style="margin-top:12px;">Whether it's pre-event briefings or backstage chaos, I keep things smooth, schedules tight, and stakeholders smiling. If there's an event puzzle, I'm the person who makes all the pieces fit — preferably with coffee in one hand and a checklist in the other.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <h2>Let's work together.</h2>
+  <div class="cta-row">
+    <a href="mailto:snehassingh27@gmail.com" class="apple-btn apple-btn-blue">Send Email</a>
+    <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="apple-btn apple-btn-outline">LinkedIn</a>
+    <a href="https://github.com/snehassingh27" target="_blank" class="apple-btn apple-btn-outline">GitHub</a>
+  </div>
+  <div class="contact-meta">
+    <a href="tel:8572699304" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg><span>(857) 269-9304</span></a>
+    <a href="https://www.instagram.com/sneha270011/" target="_blank" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
+    <a href="https://www.youtube.com/@Snehasince20as" target="_blank" class="c-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg><span>YouTube</span></a>
+  </div>
+</div>
+
+</div><!-- /page -->
 
 <footer>
   <div style="margin-bottom:6px;">
@@ -609,97 +563,193 @@ footer a:hover { color:var(--blue); }
 </footer>
 
 <script>
-/* ── Custom cursor ── */
-const cursor = document.getElementById('cursor');
-const dot    = document.getElementById('cursor-dot');
-let mx = -100, my = -100;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx + 'px';
-  dot.style.top  = my + 'px';
+/* ══ CURSOR ══ */
+const cursorEl = document.getElementById('cursor');
+const dotEl    = document.getElementById('cursor-dot');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dotEl.style.left=mx+'px';dotEl.style.top=my+'px';});
+(function animC(){cx+=(mx-cx)*.15;cy+=(my-cy)*.15;cursorEl.style.left=cx+'px';cursorEl.style.top=cy+'px';requestAnimationFrame(animC);})();
+document.querySelectorAll('a,button,.exp-row,.proj-card,.soc-pill,.chip').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursorEl.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>cursorEl.classList.remove('hovering'));
 });
 
-// Smooth lag for main cursor ring
-function animateCursor() {
-  const cx = parseFloat(cursor.style.left) || mx;
-  const cy = parseFloat(cursor.style.top)  || my;
-  cursor.style.left = (cx + (mx - cx) * 0.18) + 'px';
-  cursor.style.top  = (cy + (my - cy) * 0.18) + 'px';
-  requestAnimationFrame(animateCursor);
+/* ══ SMOOTH SCROLL ══ */
+function smoothTo(id,e){
+  if(e)e.preventDefault();
+  const el=document.getElementById(id);
+  if(!el)return;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-60,behavior:'smooth'});
 }
-animateCursor();
 
-document.querySelectorAll('a, button, .exp-row, .proj-card, .soc-pill, .chip').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+/* ══ EXP TOGGLE ══ */
+function toggleExp(row){
+  const d=row.nextElementSibling,c=row.querySelector('.round-chevron'),o=d.classList.contains('open');
+  document.querySelectorAll('.exp-detail.open').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.round-chevron.open').forEach(x=>x.classList.remove('open'));
+  if(!o){d.classList.add('open');c.classList.add('open');}
+}
+
+/* ══ PROJECTS CAROUSEL ══ */
+function scrollProj(dir){
+  const t=document.getElementById('projTrack');
+  const card=t.querySelector('.proj-card');
+  t.scrollBy({left:dir*(card.offsetWidth+24),behavior:'smooth'});
+}
+
+/* active card detection */
+function updateActive(){
+  const t=document.getElementById('projTrack');
+  const cx2=t.getBoundingClientRect().left+t.offsetWidth/2;
+  let best=null,bestD=1e9;
+  t.querySelectorAll('.proj-card').forEach(c=>{
+    const r=c.getBoundingClientRect();
+    const d=Math.abs(r.left+r.width/2-cx2);
+    if(d<bestD){bestD=d;best=c;}
+  });
+  t.querySelectorAll('.proj-card').forEach(c=>c.classList.remove('active'));
+  if(best)best.classList.add('active');
+}
+document.getElementById('projTrack').addEventListener('scroll',updateActive,{passive:true});
+window.addEventListener('resize',updateActive);
+setTimeout(updateActive,150);
+
+/* ══ SPARK CANVAS BORDER ══ */
+const sparkStates={};
+function initSpark(card){
+  const idx=card.dataset.idx;
+  const canvas=card.querySelector('.spark-canvas');
+  if(!canvas)return;
+  const w=card.offsetWidth+6, h=card.offsetHeight+6;
+  canvas.width=w; canvas.height=h;
+  canvas.style.width=w+'px'; canvas.style.height=h+'px';
+  canvas.style.left='-3px'; canvas.style.top='-3px';
+  sparkStates[idx]={angle:0,running:false,canvas,w,h,r:18};
+}
+
+function drawSpark(idx){
+  const s=sparkStates[idx];
+  if(!s)return;
+  const {canvas,w,h,r}=s;
+  const ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,w,h);
+
+  // perimeter path
+  const path=new Path2D();
+  path.moveTo(r,0);
+  path.lineTo(w-r,0);
+  path.quadraticCurveTo(w,0,w,r);
+  path.lineTo(w,h-r);
+  path.quadraticCurveTo(w,h,w-r,h);
+  path.lineTo(r,h);
+  path.quadraticCurveTo(0,h,0,h-r);
+  path.lineTo(0,r);
+  path.quadraticCurveTo(0,0,r,0);
+
+  // perimeter length approx
+  const perim=2*(w+h)-8*r+2*Math.PI*r;
+  const a=s.angle; // 0..1 = fraction along perimeter
+
+  // spark head position along perimeter
+  function pointAt(frac){
+    frac=((frac%1)+1)%1;
+    const dist=frac*perim;
+    // segments: top, right, bottom-right corner, bottom, left
+    const seg=[w-2*r, Math.PI/2*r, h-2*r, Math.PI/2*r, w-2*r, Math.PI/2*r, h-2*r, Math.PI/2*r];
+    // simplified: just compute x,y on rect perimeter
+    let d=dist;
+    // top edge left→right
+    if(d<=w-r){return{x:r+d,y:0};}d-=(w-r);
+    // top-right corner
+    if(d<=Math.PI/2*r){const ang=-Math.PI/2+d/r;return{x:w-r+Math.cos(ang)*r,y:r+Math.sin(ang)*r};}d-=Math.PI/2*r;
+    // right edge top→bottom
+    if(d<=h-2*r){return{x:w,y:r+d};}d-=(h-2*r);
+    // bottom-right corner
+    if(d<=Math.PI/2*r){const ang=0+d/r;return{x:w-r+Math.cos(ang)*r,y:h-r+Math.sin(ang)*r};}d-=Math.PI/2*r;
+    // bottom right→left
+    if(d<=w-2*r){return{x:w-r-d,y:h};}d-=(w-2*r);
+    // bottom-left corner
+    if(d<=Math.PI/2*r){const ang=Math.PI/2+d/r;return{x:r+Math.cos(ang)*r,y:h-r+Math.sin(ang)*r};}d-=Math.PI/2*r;
+    // left edge bottom→top
+    if(d<=h-2*r){return{x:0,y:h-r-d};}d-=(h-2*r);
+    // top-left corner
+    const ang=Math.PI+d/r;
+    return{x:r+Math.cos(ang)*r,y:r+Math.sin(ang)*r};
+  }
+
+  // draw trailing spark glow
+  const tailLen=0.18;
+  const steps=60;
+  for(let i=0;i<steps;i++){
+    const frac=a-(i/steps)*tailLen;
+    const pt=pointAt(frac);
+    const alpha=(1-i/steps)*0.85;
+    const size=i===0?3.5:1.8*(1-i/steps);
+    ctx.beginPath();
+    ctx.arc(pt.x,pt.y,size,0,Math.PI*2);
+    // color: head=white, tail=blue
+    const t2=i/steps;
+    const r2=Math.round(255*(1-t2)+0*t2);
+    const g2=Math.round(255*(1-t2)+113*t2);
+    const b2=Math.round(255*(1-t2)+227*t2);
+    ctx.fillStyle=`rgba(${r2},${g2},${b2},${alpha})`;
+    ctx.fill();
+  }
+  // head bright dot
+  const head=pointAt(a);
+  ctx.beginPath();
+  ctx.arc(head.x,head.y,3.5,0,Math.PI*2);
+  ctx.fillStyle='rgba(255,255,255,1)';
+  ctx.fill();
+  // glow halo
+  const grd=ctx.createRadialGradient(head.x,head.y,0,head.x,head.y,14);
+  grd.addColorStop(0,'rgba(150,210,255,0.55)');
+  grd.addColorStop(1,'rgba(0,113,227,0)');
+  ctx.beginPath();
+  ctx.arc(head.x,head.y,14,0,Math.PI*2);
+  ctx.fillStyle=grd;
+  ctx.fill();
+}
+
+function animateSpark(idx){
+  const s=sparkStates[idx];
+  if(!s||!s.running)return;
+  s.angle=(s.angle+0.004)%1;
+  drawSpark(idx);
+  requestAnimationFrame(()=>animateSpark(idx));
+}
+
+// attach hover listeners
+document.querySelectorAll('.proj-card').forEach(card=>{
+  const idx=card.dataset.idx;
+  card.addEventListener('mouseenter',()=>{
+    if(!card.classList.contains('active'))return;
+    if(!sparkStates[idx])initSpark(card);
+    else{
+      const s=sparkStates[idx];
+      s.canvas.width=card.offsetWidth+6;
+      s.canvas.height=card.offsetHeight+6;
+      s.w=s.canvas.width; s.h=s.canvas.height;
+    }
+    sparkStates[idx].running=true;
+    sparkStates[idx].canvas.style.opacity='1';
+    animateSpark(idx);
+  });
+  card.addEventListener('mouseleave',()=>{
+    if(sparkStates[idx]){
+      sparkStates[idx].running=false;
+      sparkStates[idx].canvas.style.opacity='0';
+    }
+  });
 });
 
-/* ── Smooth scroll ── */
-function smoothTo(id, e) {
-  if (e) e.preventDefault();
-  const el = document.getElementById(id);
-  if (!el) return;
-  const offset = 60; // nav height
-  const top = el.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({ top, behavior: 'smooth' });
-}
-
-/* ── Exp toggle ── */
-function toggleExp(row) {
-  const detail = row.nextElementSibling;
-  const chev   = row.querySelector('.round-chevron');
-  const isOpen = detail.classList.contains('open');
-  document.querySelectorAll('.exp-detail.open').forEach(d => d.classList.remove('open'));
-  document.querySelectorAll('.round-chevron.open').forEach(c => c.classList.remove('open'));
-  if (!isOpen) { detail.classList.add('open'); chev.classList.add('open'); }
-}
-
-/* ── Active nav on scroll ── */
-const ids = ['about','experience','projects','skills','education','contact'];
-window.addEventListener('scroll', () => {
-  let cur = 'about';
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - 130) cur = id;
-  });
-  document.querySelectorAll('.cat-link,.ln-link').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
-  });
-}, { passive: true });
-
-/* ── Profile photo via canvas to bypass CORS ── */
-const frame = document.getElementById('photoFrame');
-const img   = document.getElementById('profileImg');
-
-// Wix URLs block iframe cross-origin — use a CORS proxy
-const rawUrl = "https://static.wixstatic.com/media/754149_e8c02a6535a04a0c867cb50f3fddff59~mv2.jpg";
-const proxied = "https://wsrv.nl/?url=" + encodeURIComponent(rawUrl) + "&w=400&h=400&fit=cover&a=attention&output=jpg&q=85";
-
-img.onload = () => {
-  frame.style.background = '';
-  const placeholder = frame.querySelector('.photo-placeholder');
-  if (placeholder) placeholder.style.display = 'none';
-  img.style.display = 'block';
-};
-img.onerror = () => {
-  // keep the SS placeholder visible, image stays hidden
-  img.style.display = 'none';
-};
-img.style.display = 'none'; // hide until loaded
-img.src = proxied;
-
-// Build SS placeholder
-frame.style.background = 'linear-gradient(135deg,#0071e3,#5856d6)';
-frame.style.position = 'relative';
-frame.style.display = 'flex';
-frame.style.alignItems = 'center';
-frame.style.justifyContent = 'center';
-const pl = document.createElement('div');
-pl.className = 'photo-placeholder';
-pl.textContent = 'SS';
-pl.style.cssText = 'font-size:56px;font-weight:700;color:#fff;font-family:-apple-system,sans-serif;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;';
-frame.appendChild(pl);
+/* ══ SCROLL ACTIVE NAV ══ */
+const navIds=['about','experience','projects','skills','education','contact'];
+window.addEventListener('scroll',()=>{
+  let cur='about';
+  navIds.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-130)cur=id;});
+  document.querySelectorAll('.cat-link,.ln-link').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
 </script>
 </body>
 </html>
