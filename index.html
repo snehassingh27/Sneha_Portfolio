@@ -130,7 +130,7 @@ a:hover{text-decoration:underline;}
 .pci{border-radius:14px;overflow:hidden;position:relative;z-index:1;}
 .sc2{position:absolute;inset:-4px;border-radius:20px;pointer-events:none;z-index:0;opacity:0;transition:opacity .15s;}
 .pth{width:100%;height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--bg);}
-.pth img{width:100%;height:100%;object-fit:cover;display:block;}
+.pth img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:12px;background:var(--bg);}
 .ptf{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
 .pb{padding:20px 20px 22px;}
 .pb h4{font-size:16px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em;}
@@ -167,7 +167,33 @@ a:hover{text-decoration:underline;}
 .evt h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px;}
 .evt p{font-size:16px;color:var(--mu);line-height:1.75;}
 
-/* ── contact ── */
+/* ── creative space ── */
+.crsec{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;padding:60px 0 40px;}
+.crimg{border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.09);aspect-ratio:3/4;background:var(--bg);flex-shrink:0;}
+.crimg img{width:100%;height:100%;object-fit:cover;display:block;}
+.crtxt h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px;}
+.crtxt .quote{font-size:14px;color:var(--mu);font-style:italic;margin-bottom:20px;padding-left:12px;border-left:2px solid var(--br);}
+.crtxt p{font-size:16px;color:var(--mu);line-height:1.75;margin-bottom:14px;}
+
+/* art gallery scroll */
+.gal-wrap{position:relative;overflow:hidden;}
+.gal-wrap::before,.gal-wrap::after{content:'';position:absolute;top:0;bottom:16px;width:100px;z-index:6;pointer-events:none;}
+.gal-wrap::before{left:0;background:linear-gradient(to right,#fff 40%,transparent);}
+.gal-wrap::after{right:0;background:linear-gradient(to left,#fff 40%,transparent);}
+.gal-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 0 20px;}
+.gal-track::-webkit-scrollbar{display:none;}
+.gal-sp{flex:0 0 28px;}
+.art-card{flex:0 0 260px;scroll-snap-align:center;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1px solid var(--bl2);background:var(--bg);transition:transform .25s,box-shadow .25s;}
+.art-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
+.art-card img{width:100%;height:220px;object-fit:cover;display:block;}
+.art-card.wide{flex:0 0 380px;}
+.art-card.wide img{height:220px;object-fit:cover;}
+.gal-arrow{position:absolute;top:50%;transform:translateY(-60%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.95);border:1px solid var(--bl2);box-shadow:0 2px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;z-index:10;transition:all .18s;}
+.gal-arrow:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.gal-arrow svg{width:13px;height:13px;}
+.gal-arrow.gl{left:8px;}.gal-arrow.gr{right:8px;}
+
+@media(max-width:860px){.crsec{grid-template-columns:1fr;gap:28px;}.crimg{aspect-ratio:4/3;}}
 .cs{background:var(--bg);border-top:1px solid var(--bl2);text-align:center;padding:80px 28px;}
 .cs h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.025em;margin-bottom:32px;}
 .ctrow{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
@@ -267,7 +293,6 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <div class="wrap" style="padding-top:52px;padding-bottom:60px;">
   <div class="ey r up">Career Journey</div>
   <div class="stt r up d1">Work Experience</div>
-  <div class="ssb r up d2">Tap any role to expand details.</div>
   <div class="el">
     <div class="r scale d1"><div class="er" onclick="tExp(this)"><div class="ei" style="background:#e8f0fb;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="em"><h3>Keepin — Early-Stage AI Startup</h3><div class="ro">Founding Product Lead</div><div class="me">January 2025 – Present · New York, NY</div></div><div class="ergt"><span class="ba bbl">Current</span><button class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div></div><div class="ed"><ul><li>Led AI, ML & LLM SaaS delivery via CI/CD pipelines in Azure DevOps — increased release velocity 30%</li><li>Executed end-to-end product roadmap via Agile; launched MVP aligned to GTM strategy</li><li>Led backlog grooming & sprint planning in Jira & Confluence — saved $20K in dev costs</li><li>Delivered 50+ prioritized epics; managed regression testing, reduced errors 25%</li><li>Performed user requirements analysis & mapped workflows — 20% boost in operations</li></ul></div></div>
     <div class="r scale d2"><div class="er" onclick="tExp(this)"><div class="ei" style="background:#eaf7ee;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="em"><h3>IntelliSurvey</h3><div class="ro">Project Management Intern</div><div class="me">September – December 2024 · California</div></div><div class="ergt"><span class="ba bgn">Intern</span><button class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div></div><div class="ed"><ul><li>Ran A/B tests on survey flows — drove user-centered iterations by 25%</li><li>Coded surveys in JavaScript & Perl; coordinated QA and UAT</li><li>Integrated API technical writing & client feedback in Agile backlog — sped up flow 15%</li><li>Created Jira tickets for UAT GitHub integration; improved release quality</li></ul></div></div>
@@ -321,6 +346,44 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   <div class="egr" style="margin-top:28px;">
     <div class="ec ebl r left"><div class="eu">Northeastern University</div><div class="ed2">MSc in Project Management</div><div class="epp">Boston, MA · Sep 2023 – Jun 2025</div><div class="ecr"><span class="ecp">Agile</span><span class="ecp">Scope Management</span><span class="ecp">Risk Management</span><span class="ecp">UX Design</span><span class="ecp">Data Analytics</span><span class="ecp">PMP (in progress)</span></div></div>
     <div class="ec epu r right d1"><div class="eu">SNDT University</div><div class="ed2">BSc in Computer Application</div><div class="epp">Mumbai, India · Jul 2018 – Jun 2021</div><div class="ecr"><span class="ecp">Java</span><span class="ecp">SQL</span><span class="ecp">JavaScript</span><span class="ecp">Python</span><span class="ecp">Database Management</span><span class="ecp">Unix / Linux</span></div></div>
+  </div>
+</div>
+
+<!-- CREATIVE SPACE -->
+<div class="div" id="creative"></div>
+<div class="wrap">
+  <div class="crsec">
+    <div class="crtxt r left">
+      <div class="ey" style="margin-bottom:8px;">My Creative Space</div>
+      <h2>Art, Music &amp; Everything In Between</h2>
+      <p class="quote">"Imagination creates reality." – Richard Wagner</p>
+      <p>Creativity is a wonderful way to find solace and inspiration. Disconnecting from the world and immersing myself in art is incredibly therapeutic and rejuvenating. It allows me to tap into my creativity, express myself freely, and explore new ideas without any distractions.</p>
+      <p>I've always made time to create — whether it's sketching portraits, playing with 2D animations, crafting digital art, or getting lost in Adobe Lightroom edits at 2 a.m. I've designed websites, practiced new music, and yes, I once ran an art page on Instagram with over 25k followers (humble brag). I also make YouTube videos — for a slightly smaller but very loyal audience. 😄</p>
+      <p>At the heart of it all, I just love building things — whether it's with code, colors, or chords. Creativity keeps me going, and I'm always up for the next project that lets me bring ideas to life.</p>
+    </div>
+    <div class="crimg r right">
+      <img src="snehaart.jpg" alt="Sneha — Creative Space"
+        onerror="this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.style.display='none';"/>
+    </div>
+  </div>
+</div>
+
+<!-- ART GALLERY -->
+<div class="wrap" style="padding-bottom:16px;">
+  <div class="ey r up" style="margin-bottom:6px;">View Gallery</div>
+</div>
+<div class="gal-wrap r up">
+  <button class="gal-arrow gl" onclick="scrollGal(-1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="gal-arrow gr" onclick="scrollGal(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="gal-track" id="galTrack">
+    <div class="gal-sp"></div>
+    <div class="art-card r scale d1"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d2"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d3"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d4"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d5"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card wide r scale d6"><img src="art6.jpg" alt="Art 6 — YouTube" style="object-fit:cover;" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f8ff,#c8eaf7)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="gal-sp"></div>
   </div>
 </div>
 
@@ -410,6 +473,11 @@ function tExp(row) {
   document.querySelectorAll('.ed.op').forEach(x => x.classList.remove('op'));
   document.querySelectorAll('.rc.op').forEach(x => x.classList.remove('op'));
   if (!o) { d.classList.add('op'); c.classList.add('op'); }
+}
+
+function scrollGal(dir) {
+  const t = document.getElementById('galTrack');
+  t.scrollBy({ left: dir * 280, behavior: 'smooth' });
 }
 
 /* ══════════════════════
