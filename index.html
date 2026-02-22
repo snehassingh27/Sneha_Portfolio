@@ -183,11 +183,6 @@ a:hover{text-decoration:underline;}
 .gal-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 0 20px;}
 .gal-track::-webkit-scrollbar{display:none;}
 .gal-sp{flex:0 0 28px;}
-.art-card{flex:0 0 260px;scroll-snap-align:center;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);border:1px solid var(--bl2);background:var(--bg);transition:transform .25s,box-shadow .25s;}
-.art-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
-.art-card img{width:100%;height:220px;object-fit:cover;display:block;}
-.art-card.wide{flex:0 0 380px;}
-.art-card.wide img{height:220px;object-fit:cover;}
 .gal-arrow{position:absolute;top:50%;transform:translateY(-60%);width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.95);border:1px solid var(--bl2);box-shadow:0 2px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;z-index:10;transition:all .18s;}
 .gal-arrow:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);}
 .gal-arrow svg{width:13px;height:13px;}
@@ -214,7 +209,15 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <div id="cur"></div>
 <div id="dot"></div>
 
-<!-- NAV -->
+<!-- LIGHTBOX -->
+<div id="lb">
+  <div id="lb-bg" onclick="closeLb()"></div>
+  <div id="lb-box">
+    <button id="lb-close" onclick="closeLb()">✕</button>
+    <img id="lb-img" src="" alt="" style="display:none;"/>
+    <video id="lb-vid" controls style="display:none;" playsinline></video>
+  </div>
+</div>
 <div class="nav"><div class="navi">
   <div class="nb">Product Manager</div>
   <div class="nls">
@@ -301,6 +304,20 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   </div>
 </div>
 
+<!-- EVENT -->
+<div class="div" id="events"></div>
+<div class="wrap" style="padding-bottom:20px;">
+  <div class="evs">
+    <div class="evi r left"><img src="imageE.jpg" alt="Event Management" onerror="this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.style.display='none';"></div>
+    <div class="evt r right d1">
+      <div class="ey" style="margin-bottom:8px;">Beyond Product</div>
+      <h2>Event Management</h2>
+      <p>After five years in event planning, I've pretty much seen it all — last-minute venue changes, missing microphones, and VIPs who arrive fashionably early. I've wrangled vendors, stretched budgets like elastic, and coordinated everything from full-blown conferences to high-energy gigs like TechGig and the Hotstar IPL.</p>
+      <p style="margin-top:12px;">Whether it's pre-event briefings or backstage chaos, I keep things smooth, schedules tight, and stakeholders smiling. If there's an event puzzle, I'm the person who makes all the pieces fit — preferably with coffee in one hand and a checklist in the other.</p>
+    </div>
+  </div>
+</div>
+
 <!-- PROJECTS -->
 <div class="div" id="projects"></div>
 <div class="wrap" style="padding-top:52px;padding-bottom:16px;">
@@ -377,12 +394,19 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   <button class="gal-arrow gr" onclick="scrollGal(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   <div class="gal-track" id="galTrack">
     <div class="gal-sp"></div>
-    <div class="art-card r scale d1"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d2"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d3"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d4"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d5"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card wide r scale d6"><img src="art6.jpg" alt="Art 6 — YouTube" style="object-fit:cover;" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f8ff,#c8eaf7)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d1" onclick="openLb('art1.jpg','img')"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d2" onclick="openLb('art2.jpg','img')"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d3" onclick="openLb('art3.jpg','img')"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d4" onclick="openLb('art4.jpg','img')"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card r scale d5" onclick="openLb('art5.jpg','img')"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='220px';"></div>
+    <div class="art-card wide r scale d6" style="position:relative;" onclick="openLb('art6.mp4','vid')">
+      <video src="art6.mp4" muted loop playsinline style="width:100%;height:300px;object-fit:cover;display:block;border-radius:0;pointer-events:none;"></video>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+    </div>
     <div class="gal-sp"></div>
   </div>
 </div>
@@ -420,6 +444,35 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <footer><div style="margin-bottom:6px;"><a href="#about" onclick="sTo('about',event)">Overview</a> &nbsp;·&nbsp;<a href="#experience" onclick="sTo('experience',event)">Experience</a> &nbsp;·&nbsp;<a href="#projects" onclick="sTo('projects',event)">Projects</a> &nbsp;·&nbsp;<a href="#skills" onclick="sTo('skills',event)">Skills</a> &nbsp;·&nbsp;<a href="#education" onclick="sTo('education',event)">Education</a> &nbsp;·&nbsp;<a href="#contact" onclick="sTo('contact',event)">Contact</a></div>Copyright © 2025 Sneha Singh. New York, USA.</footer>
 
 <script>
+/* ══════════════════════
+   LIGHTBOX
+══════════════════════ */
+function openLb(src, type) {
+  const lb = document.getElementById('lb');
+  const img = document.getElementById('lb-img');
+  const vid = document.getElementById('lb-vid');
+  img.style.display = 'none';
+  vid.style.display = 'none';
+  if (type === 'img') {
+    img.src = src;
+    img.style.display = 'block';
+  } else {
+    vid.src = src;
+    vid.style.display = 'block';
+    vid.play();
+  }
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  const lb = document.getElementById('lb');
+  const vid = document.getElementById('lb-vid');
+  lb.classList.remove('open');
+  vid.pause(); vid.src = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
 /* ══════════════════════
    SCROLL REVEAL
 ══════════════════════ */
