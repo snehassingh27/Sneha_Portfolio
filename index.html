@@ -234,7 +234,7 @@ a:hover { text-decoration:underline; }
   display:grid; grid-template-columns:1fr 1fr; gap:1px;
   background:var(--border-light); border:1px solid var(--border-light); border-radius:12px; overflow:hidden;
 }
-.skill-block { background:var(--white); padding:24px 22px; }
+.skill-block { background:var(--white); padding:16px 18px; }
 .skill-block h4 { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); margin-bottom:12px; }
 .chip-row { display:flex; flex-wrap:wrap; gap:6px; }
 .chip { font-size:13px; padding:5px 12px; border-radius:100px; background:var(--bg); color:var(--text); border:1px solid var(--border-light); letter-spacing:-.01em; }
@@ -359,45 +359,11 @@ footer a:hover { color:var(--blue); }
       <div class="profile-col">
         <!-- Photo: using data URI placeholder that loads the real image via JS -->
         <div class="photo-frame" id="photoFrame">
-          <!-- Realistic portrait illustration – always visible, no CORS -->
-          <svg viewBox="0 0 210 210" xmlns="http://www.w3.org/2000/svg" width="210" height="210">
-            <!-- bg -->
-            <rect width="210" height="210" fill="#dce8f5"/>
-            <!-- shoulders / top -->
-            <ellipse cx="105" cy="200" rx="80" ry="55" fill="#c8d8ef"/>
-            <!-- shirt collar area -->
-            <path d="M65 175 Q105 195 145 175 L148 210 H62 Z" fill="#b8c8df"/>
-            <!-- neck -->
-            <rect x="90" y="140" width="30" height="30" rx="8" fill="#d4956a"/>
-            <!-- face -->
-            <ellipse cx="105" cy="118" rx="42" ry="46" fill="#d4956a"/>
-            <!-- hair – long black hair -->
-            <ellipse cx="105" cy="90" rx="44" ry="38" fill="#1a1a1a"/>
-            <path d="M63 90 Q55 130 60 165 Q70 155 78 148 Q72 120 74 100 Z" fill="#1a1a1a"/>
-            <path d="M147 90 Q155 130 150 165 Q140 155 132 148 Q138 120 136 100 Z" fill="#1a1a1a"/>
-            <path d="M63 90 Q65 70 105 62 Q145 70 147 90" fill="#1a1a1a"/>
-            <!-- face skin over hair base -->
-            <ellipse cx="105" cy="120" rx="36" ry="38" fill="#d4956a"/>
-            <!-- eyebrows -->
-            <path d="M82 103 Q90 99 98 103" stroke="#3a2010" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M112 103 Q120 99 128 103" stroke="#3a2010" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <!-- eyes -->
-            <ellipse cx="90" cy="111" rx="7" ry="5" fill="#fff"/>
-            <ellipse cx="120" cy="111" rx="7" ry="5" fill="#fff"/>
-            <circle cx="90" cy="111" r="3.5" fill="#2c1810"/>
-            <circle cx="120" cy="111" r="3.5" fill="#2c1810"/>
-            <circle cx="91.5" cy="109.5" r="1" fill="#fff"/>
-            <circle cx="121.5" cy="109.5" r="1" fill="#fff"/>
-            <!-- nose -->
-            <path d="M102 118 Q105 126 108 118" stroke="#c07850" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <!-- smile -->
-            <path d="M92 132 Q105 142 118 132" stroke="#c07850" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <!-- hair parting detail -->
-            <path d="M105 62 Q108 78 107 95" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
-            <!-- ear hints -->
-            <ellipse cx="69" cy="120" rx="5" ry="7" fill="#c8845a"/>
-            <ellipse cx="141" cy="120" rx="5" ry="7" fill="#c8845a"/>
-          </svg>
+          <img src="photo.jpg" alt="Sneha Singh"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+            onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='flex';"
+          />
+          <div id="photoPlaceholder" style="display:none;position:absolute;inset:0;background:linear-gradient(135deg,#0071e3,#5856d6);align-items:center;justify-content:center;font-size:56px;font-weight:700;color:#fff;font-family:-apple-system,sans-serif;">SS</div>
         </div>
         <div class="profile-info">
           <h3>Sneha Singh</h3>
@@ -579,10 +545,10 @@ footer a:hover { color:var(--blue); }
 
   <!-- ══ SKILLS ══ -->
   <div class="divider-section" id="skills"></div>
-  <div class="content" style="padding-top:52px;padding-bottom:60px;">
+  <div class="content" style="padding-top:36px;padding-bottom:40px;">
     <div class="eyebrow">Toolkit</div>
-    <div class="section-title">Skills & Tools</div>
-    <div class="skills-grid" style="margin-top:16px;">
+    <div class="section-title" style="margin-bottom:16px;">Skills & Tools</div>
+    <div class="skills-grid" style="margin-top:12px;">
       <div class="skill-block"><h4>PM & Agile</h4><div class="chip-row"><span class="chip">Agile / Scrum</span><span class="chip">Kanban</span><span class="chip">Sprint Planning</span><span class="chip">Backlog Grooming</span><span class="chip">Roadmapping</span><span class="chip">PRD Writing</span><span class="chip">UAT / QA</span><span class="chip">OKRs / KPIs</span></div></div>
       <div class="skill-block"><h4>Data & Analytics</h4><div class="chip-row"><span class="chip">SQL</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Mixpanel</span><span class="chip">Google Analytics</span><span class="chip">A/B Testing</span></div></div>
       <div class="skill-block"><h4>Design & UX</h4><div class="chip-row"><span class="chip">Figma</span><span class="chip">Miro</span><span class="chip">UX Research</span><span class="chip">Usability Testing</span><span class="chip">User Interviews</span><span class="chip">Journey Mapping</span><span class="chip">Adobe Suite</span></div></div>
@@ -616,7 +582,6 @@ footer a:hover { color:var(--blue); }
   <!-- ══ CONTACT ══ -->
   <div class="contact-section" id="contact">
     <h2>Let's work together.</h2>
-    <p>New York, USA · Open to relocate anywhere</p>
     <div class="cta-row">
       <a href="mailto:snehassingh27@gmail.com" class="apple-btn apple-btn-blue">Send Email</a>
       <a href="https://linkedin.com/in/sneha-singh-92528a1a6/" target="_blank" class="apple-btn apple-btn-outline">LinkedIn</a>
@@ -644,8 +609,6 @@ footer a:hover { color:var(--blue); }
 </footer>
 
 <script>
-/* ── Embed photo as data URI (CORS-proof) ── */
-const PHOTO_B64 = null; // will use SVG portrait instead
 /* ── Custom cursor ── */
 const cursor = document.getElementById('cursor');
 const dot    = document.getElementById('cursor-dot');
