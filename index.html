@@ -394,16 +394,16 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   <button class="gal-arrow gr" onclick="scrollGal(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   <div class="gal-track" id="galTrack">
     <div class="gal-sp"></div>
-    <div class="art-card r scale d1" onclick="openLb('art1.jpg','img')"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d2" onclick="openLb('art2.jpg','img')"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d3" onclick="openLb('art3.jpg','img')"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d4" onclick="openLb('art4.jpg','img')"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card r scale d5" onclick="openLb('art5.jpg','img')"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='220px';"></div>
-    <div class="art-card wide r scale d6" style="position:relative;" onclick="openLb('art6.mp4','vid')">
-      <video src="art6.mp4" muted loop playsinline style="width:100%;height:300px;object-fit:cover;display:block;border-radius:0;pointer-events:none;"></video>
+    <div class="art-card r scale d1" onclick="galClick(this,'art1.jpg','img')"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='160px';"></div>
+    <div class="art-card r scale d2" onclick="galClick(this,'art2.jpg','img')"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='160px';"></div>
+    <div class="art-card r scale d3" onclick="galClick(this,'art3.jpg','img')"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='160px';"></div>
+    <div class="art-card r scale d4" onclick="galClick(this,'art4.jpg','img')"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='160px';"></div>
+    <div class="art-card r scale d5" onclick="galClick(this,'art5.jpg','img')"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='160px';"></div>
+    <div class="art-card wide r scale d6" onclick="galClick(this,'art6.mp4','vid')">
+      <video src="art6.mp4" muted loop playsinline style="width:100%;height:160px;object-fit:contain;display:block;background:#000;pointer-events:none;"></video>
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
       </div>
     </div>
@@ -444,9 +444,19 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <footer><div style="margin-bottom:6px;"><a href="#about" onclick="sTo('about',event)">Overview</a> &nbsp;·&nbsp;<a href="#experience" onclick="sTo('experience',event)">Experience</a> &nbsp;·&nbsp;<a href="#projects" onclick="sTo('projects',event)">Projects</a> &nbsp;·&nbsp;<a href="#skills" onclick="sTo('skills',event)">Skills</a> &nbsp;·&nbsp;<a href="#education" onclick="sTo('education',event)">Education</a> &nbsp;·&nbsp;<a href="#contact" onclick="sTo('contact',event)">Contact</a></div>Copyright © 2025 Sneha Singh. New York, USA.</footer>
 
 <script>
-/* ══════════════════════
-   LIGHTBOX
-══════════════════════ */
+function galClick(card, src, type) {
+  const t = document.getElementById('galTrack');
+  const tr = t.getBoundingClientRect();
+  const cr = card.getBoundingClientRect();
+  const off = (cr.left + cr.width / 2) - (tr.left + tr.width / 2);
+  if (Math.abs(off) > 24) {
+    // not centered yet — scroll to center first, open on next click
+    t.scrollBy({ left: off, behavior: 'smooth' });
+  } else {
+    // already centered — open lightbox
+    openLb(src, type);
+  }
+}
 function openLb(src, type) {
   const lb = document.getElementById('lb');
   const img = document.getElementById('lb-img');
@@ -474,7 +484,7 @@ function closeLb() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
 /* ══════════════════════
-   SCROLL REVEAL
+   PROJECTS CAROUSEL
 ══════════════════════ */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -490,7 +500,7 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
 /* ══════════════════════
-   CURSOR
+   SCROLL REVEAL
 ══════════════════════ */
 const CE = document.getElementById('cur'), DE = document.getElementById('dot');
 let mx = 0, my = 0, cx = 0, cy = 0;
@@ -530,11 +540,30 @@ function tExp(row) {
 
 function scrollGal(dir) {
   const t = document.getElementById('galTrack');
-  t.scrollBy({ left: dir * 280, behavior: 'smooth' });
+  const c = t.querySelector('.art-card');
+  t.scrollBy({ left: dir * (c.offsetWidth + 14), behavior: 'smooth' });
 }
 
+function updGal() {
+  const t = document.getElementById('galTrack');
+  if (!t) return;
+  const cx = t.getBoundingClientRect().left + t.offsetWidth / 2;
+  let best = null, bd = 1e9;
+  t.querySelectorAll('.art-card').forEach(c => {
+    const r = c.getBoundingClientRect();
+    const d = Math.abs(r.left + r.width / 2 - cx);
+    if (d < bd) { bd = d; best = c; }
+  });
+  t.querySelectorAll('.art-card').forEach(c => c.classList.remove('on'));
+  if (best) best.classList.add('on');
+}
+
+document.getElementById('galTrack').addEventListener('scroll', updGal, { passive: true });
+window.addEventListener('resize', updGal);
+setTimeout(updGal, 200);
+
 /* ══════════════════════
-   PROJECTS CAROUSEL
+   LIGHTBOX
 ══════════════════════ */
 function scrollP(dir) {
   const t = document.getElementById('ptk');
