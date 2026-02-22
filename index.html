@@ -19,41 +19,7 @@ body{font-family:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont
 a{color:var(--bl);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
-/* ── Bumbbled cursive font for tagline ── */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
-.tagline-cursive{
-  font-family:'Dancing Script',cursive;
-  font-size:clamp(20px,2.2vw,26px);
-  font-weight:600;
-  font-style:italic;
-  color:var(--mu);
-  line-height:1.55;
-  max-width:600px;
-  margin:0 auto 32px;
-  letter-spacing:.01em;
-}
-
-/* ── iOS frosted glass scroll panels ── */
-.frost-wrap{
-  position:relative;
-  transition:all .5s cubic-bezier(.22,1,.36,1);
-}
-.frost-wrap::after{
-  content:'';
-  position:absolute;inset:0;
-  border-radius:18px;
-  background:rgba(255,255,255,.55);
-  backdrop-filter:blur(22px) saturate(160%);
-  -webkit-backdrop-filter:blur(22px) saturate(160%);
-  border:1px solid rgba(255,255,255,.7);
-  box-shadow:0 4px 32px rgba(0,0,0,.06),inset 0 1px 0 rgba(255,255,255,.85);
-  pointer-events:none;
-  opacity:0;
-  transition:opacity .55s cubic-bezier(.22,1,.36,1);
-  z-index:0;
-}
-.frost-wrap.frosted::after{opacity:1;}
-.frost-wrap>*{position:relative;z-index:1;}
+/* scroll reveal */
 .r{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
 .r.up{transform:translateY(50px);}
 .r.left{transform:translateX(-50px);}
@@ -66,9 +32,9 @@ a:hover{text-decoration:underline;}
 /* nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--bl2);height:52px;display:flex;align-items:center;}
 .navi{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;width:100%;}
-.nb{font-size:21px;font-weight:600;color:var(--tx);}
-.nls{display:flex;}
-.nl{font-size:13px;color:var(--mu);text-decoration:none;padding:0 16px;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s;}
+.nb{font-size:21px;font-weight:600;color:var(--tx);flex-shrink:0;}
+.nls{display:flex;align-items:center;gap:0;}
+.nl{font-size:13px;color:var(--mu);text-decoration:none;padding:0 14px;height:52px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s;white-space:nowrap;}
 .nl:hover{color:var(--tx);text-decoration:none;}
 .nl.on{color:var(--tx);border-bottom-color:var(--tx);}
 
@@ -200,8 +166,8 @@ a:hover{text-decoration:underline;}
 
 /* creative */
 .crsec{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;padding:60px 0 40px;}
-.crimg{border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.09);aspect-ratio:4/5;background:var(--bg);flex-shrink:0;}
-.crimg img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
+.crimg{border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.09);aspect-ratio:3/4;background:var(--bg);}
+.crimg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .crtxt h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.02em;margin-bottom:8px;}
 .crtxt .quote{font-size:14px;color:var(--mu);font-style:italic;margin-bottom:20px;padding-left:12px;border-left:2px solid var(--br);}
 .crtxt p{font-size:16px;color:var(--mu);line-height:1.75;margin-bottom:14px;}
@@ -264,26 +230,16 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <!-- HERO -->
 <div class="hero">
   <h1 class="r up">Sneha Singh</h1>
-  <p class="tagline-cursive r up d1">Turning complex ideas into meaningful products through design, data, and collaboration.</p>
+  <p class="tag r up d1">Turning complex ideas into meaningful products through design, data, and collaboration.</p>
   <div class="crow r up d2">
     <a href="#about"   class="btn bp" onclick="sTo('about',event)">View Overview</a>
     <a href="#contact" class="btn bo" onclick="sTo('contact',event)">Get in Touch</a>
   </div>
 </div>
 
-<!-- CAT NAV -->
-<div class="cnw"><div class="cn">
-  <a href="#about"      class="cl on" onclick="sTo('about',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About</a>
-  <a href="#experience" class="cl"    onclick="sTo('experience',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Experience</a>
-  <a href="#projects"   class="cl"    onclick="sTo('projects',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Projects</a>
-  <a href="#skills"     class="cl"    onclick="sTo('skills',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Skills</a>
-  <a href="#education"  class="cl"    onclick="sTo('education',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Education</a>
-  <a href="#contact"    class="cl"    onclick="sTo('contact',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>Contact</a>
-</div></div>
-
 <!-- ABOUT -->
 <div class="div" id="about"></div>
-<div class="wrap"><div class="aw frost-wrap">
+<div class="wrap"><div class="aw">
   <div class="bt r left">
     <p class="bg2">Hello there!</p>
     <h2 class="bn">I'm Sneha<br><span style="color:var(--mu);font-weight:300;font-size:clamp(20px,2.5vw,30px);">Welcome — glad you stopped by :)</span></h2>
@@ -322,10 +278,10 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 
 <!-- EXPERIENCE -->
 <div class="div" id="experience" style="margin-top:40px;"></div>
-  <div class="wrap" style="padding-top:52px;padding-bottom:60px;">
+<div class="wrap" style="padding-top:52px;padding-bottom:60px;">
   <div class="ey r up">Career Journey</div>
   <div class="stt r up d1">Work Experience</div>
-  <div class="el frost-wrap">
+  <div class="el">
     <div class="r scale d1"><div class="er" onclick="tExp(this)"><div class="ei" style="background:#e8f0fb;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0071e3" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><div class="em"><h3>Keepin — Early-Stage AI Startup</h3><div class="ro">Founding Product Lead</div><div class="me">January 2025 – Present · New York, NY</div></div><div class="ergt"><span class="ba bbl">Current</span><button class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div></div><div class="ed"><ul><li>Led AI, ML & LLM SaaS delivery via CI/CD in Azure DevOps — increased release velocity 30%</li><li>Launched MVP aligned to GTM strategy via Agile roadmap execution</li><li>Led backlog grooming & sprint planning in Jira & Confluence — saved $20K in dev costs</li><li>Delivered 50+ prioritized epics; regression testing reduced errors 25%</li><li>User requirements analysis & workflow mapping — 20% boost in operations</li></ul></div></div>
     <div class="r scale d2"><div class="er" onclick="tExp(this)"><div class="ei" style="background:#eaf7ee;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d8348" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="em"><h3>IntelliSurvey</h3><div class="ro">Project Management Intern</div><div class="me">September – December 2024 · California</div></div><div class="ergt"><span class="ba bgn">Intern</span><button class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div></div><div class="ed"><ul><li>A/B tests on survey flows — drove user-centered iterations by 25%</li><li>Coded surveys in JavaScript & Perl; coordinated QA and UAT</li><li>API technical writing & client feedback in Agile backlog — sped up flow 15%</li><li>Jira tickets for UAT GitHub integration; improved release quality</li></ul></div></div>
     <div class="r scale d3"><div class="er" onclick="tExp(this)"><div class="ei" style="background:#f0efff;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5856d6" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="em"><h3>Keyed Brick</h3><div class="ro">Product Manager Volunteer</div><div class="me">April – July 2024 · Massachusetts</div></div><div class="ergt"><span class="ba bpu">Volunteer</span><button class="rc"><svg viewBox="0 0 24 24" fill="none" stroke="#6e6e73" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></button></div></div><div class="ed"><ul><li>Sprint planning & backlog grooming in Monday.com — reduced delays 20%</li><li>User interviews to map pain points, aligning product vision with user needs</li><li>Client consultations & vendor negotiations; secured cost-effective resources</li></ul></div></div>
@@ -373,7 +329,7 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <div class="wrap" style="padding-top:36px;padding-bottom:40px;">
   <div class="ey r up">Toolkit</div>
   <div class="stt r up d1" style="margin-bottom:12px;">Skills & Tools</div>
-  <div class="skgr frost-wrap" style="margin-top:12px;">
+  <div class="skgr" style="margin-top:12px;">
     <div class="skb r scale d1"><h4>PM & Agile</h4><div class="chr"><span class="ch">Agile / Scrum</span><span class="ch">Kanban</span><span class="ch">Sprint Planning</span><span class="ch">Backlog Grooming</span><span class="ch">Roadmapping</span><span class="ch">PRD Writing</span><span class="ch">UAT / QA</span><span class="ch">OKRs / KPIs</span></div></div>
     <div class="skb r scale d2"><h4>Data & Analytics</h4><div class="chr"><span class="ch">SQL</span><span class="ch">Tableau</span><span class="ch">Power BI</span><span class="ch">Mixpanel</span><span class="ch">Google Analytics</span><span class="ch">A/B Testing</span></div></div>
     <div class="skb r scale d3"><h4>Design & UX</h4><div class="chr"><span class="ch">Figma</span><span class="ch">Miro</span><span class="ch">UX Research</span><span class="ch">Usability Testing</span><span class="ch">User Interviews</span><span class="ch">Journey Mapping</span><span class="ch">Adobe Suite</span></div></div>
@@ -388,7 +344,7 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
 <div class="wrap" style="padding-top:52px;padding-bottom:60px;">
   <div class="ey r up">Education</div>
   <div class="stt r up d1">Academic Background</div>
-  <div class="egr frost-wrap" style="margin-top:28px;">
+  <div class="egr" style="margin-top:28px;">
     <div class="ec ebl r left"><div class="eu">Northeastern University</div><div class="ed2">MSc in Project Management</div><div class="epp">Boston, MA · Sep 2023 – Jun 2025</div><div class="ecr"><span class="ecp">Agile</span><span class="ecp">Scope Management</span><span class="ecp">Risk Management</span><span class="ecp">UX Design</span><span class="ecp">Data Analytics</span><span class="ecp">PMP (in progress)</span></div></div>
     <div class="ec epu r right d1"><div class="eu">SNDT University</div><div class="ed2">BSc in Computer Application</div><div class="epp">Mumbai, India · Jul 2018 – Jun 2021</div><div class="ecr"><span class="ecp">Java</span><span class="ecp">SQL</span><span class="ecp">JavaScript</span><span class="ecp">Python</span><span class="ecp">Database Management</span><span class="ecp">Unix / Linux</span></div></div>
   </div>
@@ -521,14 +477,6 @@ function drawFrame(idx){const s=sparks[idx];if(!s||!s.active)return;const{cv,W,H
 function startSpark(idx,card){const cv=document.getElementById('cv'+idx);if(!cv)return;const W=card.offsetWidth+8,H=card.offsetHeight+8;cv.width=W;cv.height=H;cv.style.cssText+=`;width:${W}px;height:${H}px;left:-4px;top:-4px;opacity:1;`;sparks[idx]={cv,W,H,R:20,angle:Math.random(),active:true};drawFrame(idx);}
 function stopSpark(idx){if(sparks[idx]){sparks[idx].active=false;const cv=sparks[idx].cv;if(cv)cv.style.opacity='0';}}
 document.querySelectorAll('#ptk .c-card').forEach(card=>{const idx=card.dataset.i;if(!idx)return;card.addEventListener('mouseenter',()=>{if(card.classList.contains('on'))startSpark(idx,card);});card.addEventListener('mouseleave',()=>stopSpark(idx));});
-
-/* FROST OBSERVER — iOS blur panels */
-const frostObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    e.target.classList.toggle('frosted',e.isIntersecting);
-  });
-},{threshold:.08,rootMargin:'0px 0px -20px 0px'});
-document.querySelectorAll('.frost-wrap').forEach(el=>frostObs.observe(el));
 
 /* SCROLL REVEAL */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');else e.target.classList.remove('vis');});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
