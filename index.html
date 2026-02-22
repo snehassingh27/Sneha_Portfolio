@@ -394,16 +394,16 @@ footer a{color:var(--mu);}footer a:hover{color:var(--bl);}
   <button class="gal-arrow gr" onclick="scrollGal(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg></button>
   <div class="gal-track" id="galTrack">
     <div class="gal-sp"></div>
-    <div class="art-card r scale d1" onclick="galClick(this,'art1.jpg','img')"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='160px';"></div>
-    <div class="art-card r scale d2" onclick="galClick(this,'art2.jpg','img')"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='160px';"></div>
-    <div class="art-card r scale d3" onclick="galClick(this,'art3.jpg','img')"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='160px';"></div>
-    <div class="art-card r scale d4" onclick="galClick(this,'art4.jpg','img')"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='160px';"></div>
-    <div class="art-card r scale d5" onclick="galClick(this,'art5.jpg','img')"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='160px';"></div>
-    <div class="art-card wide r scale d6" onclick="galClick(this,'art6.mp4','vid')">
-      <video src="art6.mp4" muted loop playsinline style="width:100%;height:160px;object-fit:contain;display:block;background:#000;pointer-events:none;"></video>
+    <div class="art-card r scale d1" onclick="galClick(this,'art1.jpg','img')"><img src="art1.jpg" alt="Art 1" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fef0f0,#fdd5d5)';this.parentElement.style.minHeight='100px';"></div>
+    <div class="art-card r scale d2" onclick="galClick(this,'art2.jpg','img')"><img src="art2.jpg" alt="Art 2" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#eaf7ee,#c6efce)';this.parentElement.style.minHeight='100px';"></div>
+    <div class="art-card r scale d3" onclick="galClick(this,'art3.jpg','img')"><img src="art3.jpg" alt="Art 3" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#e8f0fb,#d2e3fc)';this.parentElement.style.minHeight='100px';"></div>
+    <div class="art-card r scale d4" onclick="galClick(this,'art4.jpg','img')"><img src="art4.jpg" alt="Art 4" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f0efff,#e2dfff)';this.parentElement.style.minHeight='100px';"></div>
+    <div class="art-card r scale d5" onclick="galClick(this,'art5.jpg','img')"><img src="art5.jpg" alt="Art 5" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#fff4e6,#fde9c8)';this.parentElement.style.minHeight='100px';"></div>
+    <div class="art-card wide r scale d6" onclick="galClick(this,'art6.mp4','vid')" style="position:relative;">
+      <video src="art6.mp4" muted loop playsinline style="width:100%;height:100px;object-fit:contain;display:block;background:#000;pointer-events:none;"></video>
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
-        <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.2);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;box-shadow:0 1px 8px rgba(0,0,0,.2);">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#1d1d1f"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </div>
       </div>
     </div>
@@ -543,7 +543,6 @@ function scrollGal(dir) {
   const c = t.querySelector('.art-card');
   t.scrollBy({ left: dir * (c.offsetWidth + 14), behavior: 'smooth' });
 }
-
 function updGal() {
   const t = document.getElementById('galTrack');
   if (!t) return;
